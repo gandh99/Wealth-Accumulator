@@ -1,0 +1,15 @@
+@import url('../styles.css');
+
+.container {
+}
+
+.utility-bar {
+    /* background-color: red; */
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.card-container {
+    margin: 2rem auto;
+    background-color: green;
+}

@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/navigation/sidebar.css'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Sidebar extends Component {
     render() {
@@ -15,7 +10,7 @@ export default class Sidebar extends Component {
         const menuStyle = {
             visibility: this.props.showSidebar ? 'visible' : 'hidden'
         }
-        
+
         return (
             <div className='sidebar-container' style={containerStyle}>
                 <div className='sidebar-header' style={menuStyle}>

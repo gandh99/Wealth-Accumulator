@@ -1,0 +1,10 @@
+@import url('../styles.css');
+
+.button {
+    background-color: var(--add-button-color);
+    color: var(--primary-text-color);
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+    width: 10rem;
+    cursor: pointer;
+}
