@@ -1,0 +1,27 @@
+@import url('./styles.css');
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+.sidebar-header {
+    background-color: var(--primary-color-dark);
+    padding: 1rem 2rem;
+    font-weight: bold;
+}
+
+.sidebar-menu {
+    text-align: left;
+    padding-top: 1rem;
+}
+
+.sidebar-option {
+    padding: 0.5rem 2rem;
+    color: var(--secondary-text-color);
+    font-weight: bold;
+    cursor: pointer;
+}
