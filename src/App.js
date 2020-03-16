@@ -9,6 +9,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Sidebar from './navigation/Sidebar'
 import Overview from './overview/Overview'
 import Header from './navigation/Header';
+import Expenses from './expenses/Expenses';
 
 class App extends Component {
   state = {
@@ -26,14 +27,16 @@ class App extends Component {
           <Header
             toggleSidebar={this.toggleSidebar}
           />
-          {this.state.showSidebar &&
-            <Sidebar
-              toggleSidebar={this.toggleSidebar}
-            />
-          }
+          <Sidebar 
+            showSidebar={this.state.showSidebar}
+            toggleSidebar={this.toggleSidebar}
+          />
           <Switch>
             <Route path="/overview">
               <Overview />
+            </Route>
+            <Route path="/expenses">
+              <Expenses />
             </Route>
           </Switch>
         </div>

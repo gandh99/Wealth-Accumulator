@@ -6,6 +6,8 @@
     height: 100vh;
     background-color: var(--primary-color);
     color: var(--primary-text-color);
+    width: 0%;
+    transition: 0.3s;
 }
 
 .sidebar-header {
@@ -13,11 +15,13 @@
     padding: 1rem 2rem;
     font-weight: bold;
     cursor: pointer;
+    text-align: start;
 }
 
 .sidebar-menu {
     text-align: left;
     padding-top: 1rem;
+    transition: 0.1s;
 }
 
 .sidebar-option {
@@ -25,4 +29,5 @@
     color: var(--secondary-text-color);
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
 }
