@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -10,20 +10,36 @@ import Sidebar from './navigation/Sidebar'
 import Overview from './overview/Overview'
 import Header from './navigation/Header';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Header />
-        {/* <Sidebar /> */}
-        <Switch>
-          <Route path="/overview">
-            <Overview />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+class App extends Component {
+  state = {
+    showSidebar: false
+  }
+
+  toggleSidebar = (showSidebar) => {
+    this.setState({ showSidebar })
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Header
+            toggleSidebar={this.toggleSidebar}
+          />
+          {this.state.showSidebar &&
+            <Sidebar
+              toggleSidebar={this.toggleSidebar}
+            />
+          }
+          <Switch>
+            <Route path="/overview">
+              <Overview />
+            </Route>
+          </Switch>
+        </div>
+      </Router >
+    );
+  }
 }
 
 export default App;

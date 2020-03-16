@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 import hamburger from '../images/hamburger.png'
 
-export default function Hamburger() {
-    return (
-        <img src={hamburger} alt='hamburger' style={style}></img>
-    )
+export default class Hamburger extends Component {
+    render() {
+        return (
+            <img
+                src={hamburger}
+                alt='hamburger'
+                style={style}
+                onClick={this.props.toggleSidebar.bind(this, true)}
+            ></img>
+        )
+    }
 }
 
 const style = {

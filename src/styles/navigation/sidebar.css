@@ -12,6 +12,7 @@
     background-color: var(--primary-color-dark);
     padding: 1rem 2rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .sidebar-menu {
