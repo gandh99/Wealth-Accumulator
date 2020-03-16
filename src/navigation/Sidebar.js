@@ -1,5 +1,11 @@
 import React from 'react'
-import '../styles/sidebar.css'
+import '../styles/navigation/sidebar.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 export default function Sidebar() {
     return (
@@ -8,7 +14,9 @@ export default function Sidebar() {
                 <div className='sidebar-logo'>Wealth Accumulator</div>
             </div>
             <div className='sidebar-menu'>
-                <div className='sidebar-option'>Overview</div>
+                <Link to='/overview'>
+                    <div className='sidebar-option'>Overview</div>
+                </Link>
                 <div className='sidebar-option'>Income</div>
                 <div className='sidebar-option'>Assets</div>
                 <div className='sidebar-option'>Expenses</div>
