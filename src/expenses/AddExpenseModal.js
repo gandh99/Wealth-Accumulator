@@ -9,6 +9,12 @@ export default function AddExpensesModal(props) {
 
     const submitExpenses = (e) => {
         e.preventDefault()
+        props.setExpenses({
+            expenseAmount,
+            expenseFrequency,
+            expensePercentageChange,
+            expensePercentageChangeFrequency
+        })
     }
 
     return (
