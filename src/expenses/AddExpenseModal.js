@@ -67,9 +67,9 @@ export default function AddExpensesModal(props) {
                             required
                             inline
                             type="radio"
-                            label="Annual"
+                            label="Yearly"
                             name="expenseFrequencyRadio"
-                            id="annual"
+                            id="year"
                             onChange={(e) => setExpenseFrequency(e.target.id)}
                             style={radioFormStyle}
                         />
@@ -96,9 +96,9 @@ export default function AddExpensesModal(props) {
                             required
                             inline
                             type="radio"
-                            label="Annual"
+                            label="Yearly"
                             name="expensePercentageChangeRadio"
-                            id="annual"
+                            id="year"
                             onChange={(e) => setExpensePercentageChangeFrequency(e.target.id)}
                             style={radioFormStyle}
                         />

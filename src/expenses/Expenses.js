@@ -2,6 +2,8 @@ import React from 'react'
 import '../styles/expenses/expenses.css'
 import AddButton from '../components/AddButton'
 import AddExpenseModal from './AddExpenseModal'
+import ExpenseCard from './ExpenseCard'
+import { CardDeck } from 'react-bootstrap'
 
 export default function Expenses() {
     const [showModal, setShowModal] = React.useState(false)
@@ -22,6 +24,13 @@ export default function Expenses() {
                     expenses={expenses}
                     setExpenses={setExpenses}
                 />
+                <CardDeck>
+                    {expenses.map(expense => (
+                        <ExpenseCard
+                            expense={expense}
+                        />
+                    ))}
+                </CardDeck>
             </div>
         </div>
     )
