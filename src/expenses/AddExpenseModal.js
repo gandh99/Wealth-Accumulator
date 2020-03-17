@@ -2,6 +2,7 @@ import React from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 
 export default function AddExpensesModal(props) {
+    const [expenseName, setExpenseName] = React.useState('')
     const [expenseAmount, setExpenseAmount] = React.useState(0)
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
@@ -9,12 +10,16 @@ export default function AddExpensesModal(props) {
 
     const submitExpenses = (e) => {
         e.preventDefault()
-        props.setExpenses({
+        const expensesData = {
+            expenseName,
             expenseAmount,
             expenseFrequency,
             expensePercentageChange,
             expensePercentageChangeFrequency
-        })
+        }
+        props.setExpenses([
+            ...props.expenses, expensesData
+        ])
     }
 
     return (
@@ -33,11 +38,17 @@ export default function AddExpensesModal(props) {
                 onSubmit={submitExpenses}
             >
                 <Modal.Body>
-                    <Form.Group controlId="expenseAmount">
-                        <Form.Label>Expense</Form.Label>
+                    <Form.Group controlId="expenseName">
                         <Form.Control
                             type="text"
-                            placeholder="Enter expense"
+                            placeholder="Enter name of expense"
+                            onChange={(e) => setExpenseName(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="expenseAmount">
+                        <Form.Control
+                            type="text"
+                            placeholder="Enter expense amount"
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
@@ -63,10 +74,7 @@ export default function AddExpensesModal(props) {
                             style={radioFormStyle}
                         />
                     </Form.Group>
-                </Modal.Body>
-                <Modal.Body>
                     <Form.Group controlId="expensePercentageChange">
-                        <Form.Label>Percentage Change</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter percentage change"
@@ -99,6 +107,7 @@ export default function AddExpensesModal(props) {
                 <Modal.Footer>
                     <Button
                         type='submit'
+                        onClick={props.onHide}
                     >
                         Add
                 </Button>

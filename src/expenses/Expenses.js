@@ -5,12 +5,7 @@ import AddExpenseModal from './AddExpenseModal'
 
 export default function Expenses() {
     const [showModal, setShowModal] = React.useState(false)
-    const [expenses, setExpenses] = React.useState({
-        expenseAmount: '',
-        expenseFrequency: '',
-        expensePercentageChange: '',
-        expensePercentageChangeFrequency: ''
-    })
+    const [expenses, setExpenses] = React.useState([])
 
     return (
         <div className='container'>
@@ -24,6 +19,7 @@ export default function Expenses() {
                 <AddExpenseModal
                     show={showModal}
                     onHide={() => setShowModal(false)}
+                    expenses={expenses}
                     setExpenses={setExpenses}
                 />
             </div>
