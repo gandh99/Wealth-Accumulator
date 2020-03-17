@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default class Sidebar extends Component {
     render() {
         const containerStyle = {
-            width: this.props.showSidebar ? '150px' : '0px'
+            width: this.props.showSidebar ? '200px' : '0px'
         }
         const menuStyle = {
             visibility: this.props.showSidebar ? 'visible' : 'hidden'

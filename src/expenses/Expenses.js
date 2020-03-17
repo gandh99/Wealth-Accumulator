@@ -12,8 +12,11 @@ export default function Expenses() {
     return (
         <div className='container'>
             <div className='utility-bar'>
+                <div className='page-title'>
+                    Expenses
+                </div>
                 <AddButton
-                    text={'Add Expense'}
+                    text={'+ Expense'}
                     setShowModal={setShowModal}
                 />
             </div>

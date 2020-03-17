@@ -3,10 +3,13 @@
 .button {
     background-color: var(--add-button-color);
     color: var(--primary-text-color);
-    border-radius: 50px;
+    border-radius: 3px;
     padding: 0.5rem 2rem;
     width: 10rem;
     cursor: pointer;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: bold;
 }
 
 .button:hover {

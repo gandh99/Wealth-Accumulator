@@ -1,10 +1,15 @@
 :root {
-    --primary-color: #123361;
-    --primary-color-dark: #0c2447;
+    /* Background */
+    --primary-background-color: #2f2b3f;
+    --primary-background-color-dark: #221f2e;
     --primary-text-color: #fff;
     --secondary-text-color: #3c72ad;
-    --canvas-color: #f3f3f3;
-    --add-button-color: #e35536;
-    --add-button-hover-color: #c94d31;
+
+    /* Sidebar */
+    --primary-sidebar-text-color: #524e62;
+
+    /* Buttons */
+    --add-button-color: #7962f2;
+    --add-button-hover-color: #715bdf;
     --card-title-color: rgb(114, 113, 113);
 }
