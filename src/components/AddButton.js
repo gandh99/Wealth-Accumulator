@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../styles/components/add-button.css'
 
-export class AddButton extends Component {
-    render() {
-        return (
-            <div className='button'>
-                {this.props.text}
-            </div>
-        )
-    }
+export default function AddButton(props) {
+    return (
+        <div
+            className='button'
+            onClick={() => props.setShowModal(true)}
+        >
+            {props.text}
+        </div>
+    )
 }
-
-export default AddButton
