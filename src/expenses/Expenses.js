@@ -41,13 +41,11 @@ export default function Expenses() {
             cardContainer={
                 <CardContainer
                     cards={
-                        <div className='card-deck'>
-                            {expenses.map(expense => (
-                                <ExpenseCard
-                                    expense={expense}
-                                />
-                            ))}
-                        </div>
+                        expenses.map(expense => (
+                            <ExpenseCard
+                                expense={expense}
+                            />
+                        ))
                     }
                 />
             }

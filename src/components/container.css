@@ -6,26 +6,3 @@
 .container > * {
     margin: 2rem auto; 
 }
-
-.utility-bar {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.page-title {
-    color: var(--primary-text-color);
-    text-align: left;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.card-container {
-}
-
-.card-deck {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 380px));
-    grid-row-gap: 2rem;
-}

@@ -1,0 +1,10 @@
+@import url('../styles.css');
+
+.card-container {
+}
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 380px));
+    grid-row-gap: 2rem;
+}

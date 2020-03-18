@@ -1,10 +1,12 @@
 import React from 'react'
-import './container.css'
+import './card-container.css'
 
 export default function CardContainer(props) {
     return (
         <div className='card-container'>
-            {props.cards}
+            <div className='card-deck'>
+                {props.cards}
+            </div>
         </div>
     )
 }
