@@ -68,7 +68,9 @@ export default function AddExpensesModal(props) {
                     </Form.Group>
                     <RadioGroup
                         id={'expenseFrequency'}
-                        options={['Monthly', 'Yearly']}
+                        optionNames={['Monthly', 'Yearly']}
+                        optionValues={['month', 'year']}
+                        onRadioSelect={setExpenseFrequency}
                     />
                     <Form.Group controlId="expensePercentageChange">
                         <Form.Control
@@ -80,7 +82,9 @@ export default function AddExpensesModal(props) {
                     </Form.Group>
                     <RadioGroup
                         id={'expensePercentageChangeFrequency'}
-                        options={['Monthly', 'Yearly']}
+                        optionNames={['Monthly', 'Yearly']}
+                        optionValues={['month', 'year']}
+                        onRadioSelect={setExpensePercentageChangeFrequency}
                     />
                 </Modal.Body>
                 <Modal.Footer
@@ -97,9 +101,4 @@ export default function AddExpensesModal(props) {
             </Form>
         </Modal>
     );
-}
-
-const radioFormStyle = {
-    marginRight: '1rem',
-    marginLeft: '0.5rem',
 }
