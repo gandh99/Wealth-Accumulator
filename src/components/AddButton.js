@@ -1,5 +1,6 @@
 import React from 'react'
 import './add-button.css'
+import Add from '../images/add.png'
 
 export default function AddButton(props) {
     return (
@@ -7,7 +8,7 @@ export default function AddButton(props) {
             className='button'
             onClick={() => props.setShowModal(true)}
         >
-            {props.text}
+            <div className='button-text' id='add-button-text'>{props.text}</div>
         </div>
     )
 }

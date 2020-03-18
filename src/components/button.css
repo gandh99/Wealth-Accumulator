@@ -1,0 +1,18 @@
+@import url('../styles.css');
+.button {
+    background-color: var(--add-button-color);
+    color: var(--primary-text-color);
+    border-radius: 3px;
+    padding: 0.5rem 2rem;
+    width: 10rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: bold;
+    position: relative;
+}
+
+.button:hover {
+    background-color: var(--add-button-hover-color);
+    transition: 0.5s;
+}

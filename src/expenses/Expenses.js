@@ -23,7 +23,7 @@ export default function Expenses(props) {
                         <ButtonGroup
                             button={
                                 <AddButton
-                                    text={'+ Expense'}
+                                    text={'Expense'}
                                     setShowModal={setShowModal}
                                 />
                             }

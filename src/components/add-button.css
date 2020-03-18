@@ -1,18 +1,15 @@
 @import url('../styles.css');
+@import url('./button.css');
 
-.button {
-    background-color: var(--add-button-color);
-    color: var(--primary-text-color);
-    border-radius: 3px;
-    padding: 0.5rem 2rem;
-    width: 10rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: small;
-    font-weight: bold;
-}
-
-.button:hover {
-    background-color: var(--add-button-hover-color);
-    transition: 0.5s;
+#add-button-text:before {
+    content: "";
+    display: block;
+    float: left;
+    background-image: url('../images/add.png'); 
+    background-size: contain;
+    width: 1.0rem;
+    height: 15px;
+    margin-left: 0.3rem;
+    margin-right: 0rem;
+    margin-top: 0.1rem;
 }
