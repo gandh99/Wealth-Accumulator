@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import '../components/modal.css'
 import '../forms/form.css'
 import RadioGroup from '../forms/RadioGroup'
+import { isValidName, isValidPositiveNumber, isValidPercentage, isValidOption } from '../forms/input-validation'
 
 export default function AddExpensesModal(props) {
+    // Expenses state
     const [expenseName, setExpenseName] = React.useState('')
     const [expenseAmount, setExpenseAmount] = React.useState(0)
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
@@ -13,6 +15,17 @@ export default function AddExpensesModal(props) {
 
     const submitExpenses = (e) => {
         e.preventDefault()
+
+        // Check for errors
+        if (!isValidName(expenseName)
+            || !isValidPositiveNumber(expenseAmount)
+            || !isValidPercentage(expensePercentageChange)
+            || !isValidOption(expenseFrequency)
+            || !isValidOption(expensePercentageChangeFrequency)) {
+            return
+        }
+
+        // Update expenses in parent
         const expensesData = {
             expenseName,
             expenseAmount,
@@ -23,6 +36,20 @@ export default function AddExpensesModal(props) {
         props.setExpenses([
             ...props.expenses, expensesData
         ])
+
+        // Clear modal state
+        clearModalState()
+
+        // Close modal
+        props.onHide()
+    }
+
+    const clearModalState = () => {
+        setExpenseName('')
+        setExpenseAmount(0)
+        setExpenseFrequency('')
+        setExpensePercentageChange(0)
+        setExpensePercentageChangeFrequency('')
     }
 
     return (
@@ -33,23 +60,13 @@ export default function AddExpensesModal(props) {
             centered
             className='modal'
         >
-            <Modal.Header
-                // closeButton
-                className='modal-header'
-            >
-                <Modal.Title
-                    id="contained-modal-title-vcenter"
-                    className='modal-title'
-                >
+            <Modal.Header className='modal-header'>
+                <Modal.Title id="contained-modal-title-vcenter" className='modal-title'>
                     Add Expense
                 </Modal.Title>
             </Modal.Header>
-            <Form
-                onSubmit={submitExpenses}
-            >
-                <Modal.Body
-                    className='modal-body'
-                >
+            <Form onSubmit={submitExpenses}>
+                <Modal.Body className='modal-body'>
                     <Form.Group controlId="expenseName">
                         <Form.Control
                             className='form-text-input'
@@ -87,16 +104,10 @@ export default function AddExpensesModal(props) {
                         onRadioSelect={setExpensePercentageChangeFrequency}
                     />
                 </Modal.Body>
-                <Modal.Footer
-                    className='modal-footer'
-                >
-                    <Button
-                        type='submit'
-                        onClick={props.onHide}
-                        className='modal-button'
-                    >
+                <Modal.Footer className='modal-footer'>
+                    <Button type='submit' className='modal-button'>
                         Add
-                </Button>
+                    </Button>
                 </Modal.Footer>
             </Form>
         </Modal>
