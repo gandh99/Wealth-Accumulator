@@ -50,6 +50,7 @@ export default function AddExpensesModal(props) {
                 >
                     <Form.Group controlId="expenseName">
                         <Form.Control
+                            className='form-text-input'
                             type="text"
                             placeholder="Enter name of expense"
                             onChange={(e) => setExpenseName(e.target.value)}
@@ -57,15 +58,25 @@ export default function AddExpensesModal(props) {
                     </Form.Group>
                     <Form.Group controlId="expenseAmount">
                         <Form.Control
+                            className='form-text-input'
                             type="text"
                             placeholder="Enter expense amount"
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Group id="expenseFrequency">
-                        <Form.Check
+                        <input
+                            type='radio'
+                            name='Monthly'
+                            value='Monthly'
+                            class='form-radio-input'
+                        />
+                        <label for="Monthly">Monthly</label>
+
+                        {/* <Form.Check
                             required
                             inline
+                            className='form-radio-input'
                             type="radio"
                             label="Monthly"
                             name="expenseFrequencyRadio"
@@ -76,16 +87,18 @@ export default function AddExpensesModal(props) {
                         <Form.Check
                             required
                             inline
+                            className='form-radio-input'
                             type="radio"
                             label="Yearly"
                             name="expenseFrequencyRadio"
                             id="year"
                             onChange={(e) => setExpenseFrequency(e.target.id)}
                             style={radioFormStyle}
-                        />
+                        /> */}
                     </Form.Group>
                     <Form.Group controlId="expensePercentageChange">
                         <Form.Control
+                            className='form-text-input'
                             type="text"
                             placeholder="Enter percentage change"
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
