@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import './expense-card.css'
+import { numberWithCommas } from '../utils/utility'
 
 export default function ExpenseCard(props) {
     const {
@@ -29,8 +30,4 @@ export default function ExpenseCard(props) {
             </div>
         </div>
     )
-}
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

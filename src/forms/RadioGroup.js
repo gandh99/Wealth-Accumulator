@@ -1,8 +1,9 @@
 import React from 'react'
 import './radio-button.css'
+import { transformArraysToObject } from '../utils/utility'
 
 export default function RadioGroup(props) {
-    const options = transform(props.optionNames, props.optionValues)
+    const options = transformArraysToObject(props.optionNames, props.optionValues)
     
     return (
         <div class='radio-group-container'>
@@ -19,16 +20,4 @@ export default function RadioGroup(props) {
             ))}
         </div>
     )
-}
-
-function transform(nameArray, valueArray) {
-    let obj = []
-    for (let i = 0; i < nameArray.length; i++) {
-        obj.push({
-            name: nameArray[i],
-            value: (valueArray[i]) ? valueArray[i] : nameArray[i],
-        })
-    }
-    
-    return obj
 }
