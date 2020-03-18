@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
+import '../components/modal.css'
 
 export default function AddExpensesModal(props) {
     const [expenseName, setExpenseName] = React.useState('')
@@ -28,16 +29,25 @@ export default function AddExpensesModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            className='modal'
         >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
+            <Modal.Header
+                // closeButton
+                className='modal-header'
+            >
+                <Modal.Title
+                    id="contained-modal-title-vcenter"
+                    className='modal-title'
+                >
                     Add Expense
                 </Modal.Title>
             </Modal.Header>
             <Form
                 onSubmit={submitExpenses}
             >
-                <Modal.Body>
+                <Modal.Body
+                    className='modal-body'
+                >
                     <Form.Group controlId="expenseName">
                         <Form.Control
                             type="text"
@@ -104,10 +114,13 @@ export default function AddExpensesModal(props) {
                         />
                     </Form.Group>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer
+                    className='modal-footer'
+                >
                     <Button
                         type='submit'
                         onClick={props.onHide}
+                        className='modal-button'
                     >
                         Add
                 </Button>
