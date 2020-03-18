@@ -25,7 +25,7 @@ export default function AddExpensesModal(props) {
             return
         }
 
-        // Update expenses in parent
+        // Update expenses in parents
         const expensesData = {
             expenseName,
             expenseAmount,
@@ -34,6 +34,9 @@ export default function AddExpensesModal(props) {
             expensePercentageChangeFrequency
         }
         props.setExpenses([
+            ...props.expenses, expensesData
+        ])
+        props.saveExpensesToApp([
             ...props.expenses, expensesData
         ])
 

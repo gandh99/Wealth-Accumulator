@@ -11,7 +11,3 @@
     border: none;
     color: var(--primary-text-color);
 }
-
-.invalid {
-    border: solid 2px red;
-}

@@ -13,7 +13,8 @@ import Expenses from './expenses/Expenses';
 
 class App extends Component {
   state = {
-    showSidebar: false
+    showSidebar: false,
+    expenses: []
   }
 
   toggleSidebar = (showSidebar) => {
@@ -36,7 +37,10 @@ class App extends Component {
               <Overview />
             </Route>
             <Route path="/expenses">
-              <Expenses />
+              <Expenses
+                expenses={this.state.expenses}
+                saveExpensesToApp={(expenses) => this.setState({expenses})}
+              />
             </Route>
           </Switch>
         </div>

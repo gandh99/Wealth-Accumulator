@@ -9,9 +9,10 @@ import ButtonGroup from '../components/ButtonGroup'
 import CardContainer from '../components/CardContainer'
 import AddExpensesModal from './AddExpenseModal'
 
-export default function Expenses() {
+export default function Expenses(props) {
     const [showModal, setShowModal] = React.useState(false)
-    const [expenses, setExpenses] = React.useState([])
+    // const [expenses, setExpenses] = React.useState([])
+    const [expenses, setExpenses] = React.useState(props.expenses)
 
     return (
         <Container
@@ -36,6 +37,7 @@ export default function Expenses() {
                     onHide={() => setShowModal(false)}
                     expenses={expenses}
                     setExpenses={setExpenses}
+                    saveExpensesToApp={props.saveExpensesToApp}
                 />
             }
             cardContainer={
