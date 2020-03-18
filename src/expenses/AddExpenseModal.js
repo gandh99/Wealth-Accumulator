@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import '../components/modal.css'
+import '../forms/form.css'
 
 export default function AddExpensesModal(props) {
     const [expenseName, setExpenseName] = React.useState('')
@@ -65,14 +66,18 @@ export default function AddExpensesModal(props) {
                         />
                     </Form.Group>
                     <Form.Group id="expenseFrequency">
-                        <input
-                            type='radio'
-                            name='Monthly'
-                            value='Monthly'
-                            class='form-radio-input'
-                        />
-                        <label for="Monthly">Monthly</label>
-
+                        <div class='radio-group-container'>
+                            <label class="radio-button-container">
+                                <input type="radio" checked="checked" name="radio" />
+                                <span class='radio-button-text'>Monthly</span>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-button-container">
+                                <input type="radio" checked="checked" name="radio" />
+                                <span class='radio-button-text'>Yearly</span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
                         {/* <Form.Check
                             required
                             inline

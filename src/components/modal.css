@@ -1,5 +1,4 @@
 @import url('../styles.css');
-
 .modal-header, .modal-body, .modal-footer {
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
@@ -20,20 +19,4 @@
 
 .modal-button:hover {
     background-color: var(--add-button-hover-color);
-}
-
-.form-text-input {
-    background-color: var(--primary-background-color-dark);
-    border: none;
-}
-
-.form-text-input:focus {
-    background-color: var(--primary-background-color-dark);
-    border: none;
-    color: var(--primary-text-color);
-}
-
-.form-radio-input {
-    /* background-color: red; */
-    color: var(--secondary-text-color);
 }

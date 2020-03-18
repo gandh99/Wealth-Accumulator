@@ -1,0 +1,13 @@
+@import url('../styles.css');
+
+/* Text input */
+.form-text-input {
+    background-color: var(--primary-background-color-dark);
+    border: none;
+}
+
+.form-text-input:focus {
+    background-color: var(--primary-background-color-dark);
+    border: none;
+    color: var(--primary-text-color);
+}
