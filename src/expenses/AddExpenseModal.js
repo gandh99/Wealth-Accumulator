@@ -2,6 +2,7 @@ import React from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import '../components/modal.css'
 import '../forms/form.css'
+import RadioGroup from '../forms/RadioGroup'
 
 export default function AddExpensesModal(props) {
     const [expenseName, setExpenseName] = React.useState('')
@@ -65,42 +66,10 @@ export default function AddExpensesModal(props) {
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group id="expenseFrequency">
-                        <div class='radio-group-container'>
-                            <label class="radio-button-container">
-                                <input type="radio" checked="checked" name="radio" />
-                                <span class='radio-button-text'>Monthly</span>
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="radio-button-container">
-                                <input type="radio" checked="checked" name="radio" />
-                                <span class='radio-button-text'>Yearly</span>
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        {/* <Form.Check
-                            required
-                            inline
-                            className='form-radio-input'
-                            type="radio"
-                            label="Monthly"
-                            name="expenseFrequencyRadio"
-                            id="month"
-                            onChange={(e) => setExpenseFrequency(e.target.id)}
-                            style={radioFormStyle}
-                        />
-                        <Form.Check
-                            required
-                            inline
-                            className='form-radio-input'
-                            type="radio"
-                            label="Yearly"
-                            name="expenseFrequencyRadio"
-                            id="year"
-                            onChange={(e) => setExpenseFrequency(e.target.id)}
-                            style={radioFormStyle}
-                        /> */}
-                    </Form.Group>
+                    <RadioGroup
+                        id={'expenseFrequency'}
+                        options={['Monthly', 'Yearly']}
+                    />
                     <Form.Group controlId="expensePercentageChange">
                         <Form.Control
                             className='form-text-input'
@@ -109,28 +78,10 @@ export default function AddExpensesModal(props) {
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group id="expensePercentageChangeFrequency">
-                        <Form.Check
-                            required
-                            inline
-                            type="radio"
-                            label="Monthly"
-                            name="expensePercentageChangeRadio"
-                            id="month"
-                            onChange={(e) => setExpensePercentageChangeFrequency(e.target.id)}
-                            style={radioFormStyle}
-                        />
-                        <Form.Check
-                            required
-                            inline
-                            type="radio"
-                            label="Yearly"
-                            name="expensePercentageChangeRadio"
-                            id="year"
-                            onChange={(e) => setExpensePercentageChangeFrequency(e.target.id)}
-                            style={radioFormStyle}
-                        />
-                    </Form.Group>
+                    <RadioGroup
+                        id={'expensePercentageChangeFrequency'}
+                        options={['Monthly', 'Yearly']}
+                    />
                 </Modal.Body>
                 <Modal.Footer
                     className='modal-footer'
