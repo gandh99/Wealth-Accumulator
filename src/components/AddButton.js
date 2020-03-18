@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/components/add-button.css'
+import './add-button.css'
 
 export default function AddButton(props) {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/navigation/header.css'
+import './header.css'
 import Hamburger from './Hamburger'
 
 export default class Header extends Component {

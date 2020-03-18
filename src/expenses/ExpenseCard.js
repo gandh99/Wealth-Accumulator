@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
-import '../styles/expenses/expense-card.css'
+import './expense-card.css'
 
 export default function ExpenseCard(props) {
     const {

@@ -1,9 +1,8 @@
 import React from 'react'
-import '../styles/expenses/expenses.css'
+import './expenses.css'
 import AddButton from '../components/AddButton'
 import AddExpenseModal from './AddExpenseModal'
 import ExpenseCard from './ExpenseCard'
-import { CardDeck } from 'react-bootstrap'
 
 export default function Expenses() {
     const [showModal, setShowModal] = React.useState(false)
