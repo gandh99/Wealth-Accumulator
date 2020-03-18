@@ -15,7 +15,7 @@
 
 .card-title {
     font-weight: bold;
-    color: var(--card-title-color);
+    color: var(--secondary-text-color);
 }
 
 .expense-amount-container, .expense-percentage-change-container {
@@ -24,7 +24,7 @@
     text-transform: uppercase;
 }
 
-.expense-amount, .expense-frequency, .expense-percentage-change {
+.expense-currency, .expense-amount, .expense-frequency, .expense-percentage-change {
     display: inline;
     margin: 0;
 }
@@ -36,7 +36,7 @@
 .expense-frequency {
     font-size: 0.8rem;
     margin-left: 1rem;
-    color: gray;
+    color: var(--secondary-text-color);
 }
 
 .expense-percentage-change-container {
@@ -44,9 +44,9 @@
 }
 
 .positive {
-    color: green;
+    color: var(--increase-text-color);
 }
 
 .negative {
-    color: red;
+    color: var(--decrease-text-color);
 }

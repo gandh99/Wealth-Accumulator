@@ -27,13 +27,13 @@ export default function Expenses() {
                     expenses={expenses}
                     setExpenses={setExpenses}
                 />
-                <CardDeck>
+                <div className='card-deck'>
                     {expenses.map(expense => (
                         <ExpenseCard
                             expense={expense}
                         />
                     ))}
-                </CardDeck>
+                </div>
             </div>
         </div>
     )

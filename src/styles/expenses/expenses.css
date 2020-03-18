@@ -21,3 +21,9 @@
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 380px));
+    grid-row-gap: 2rem;
+}

@@ -3,13 +3,15 @@
     --primary-background-color: #2f2b3f;
     --primary-background-color-dark: #221f2e;
     --primary-text-color: #fff;
-    --secondary-text-color: #3c72ad;
+    --secondary-text-color: #524e62;
 
     /* Sidebar */
-    --primary-sidebar-text-color: #524e62;
 
     /* Buttons */
     --add-button-color: #7962f2;
     --add-button-hover-color: #715bdf;
-    --card-title-color: rgb(114, 113, 113);
+
+    /* Cards */
+    --increase-text-color: #42ac3e;
+    --decrease-text-color: #f83d3d;
 }
