@@ -1,0 +1,27 @@
+@import url('../styles.css');
+.card {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.09);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.09);
+    border: none;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+}
+
+.card * {
+    margin: 1rem 2rem 0.1rem;
+    text-align: left;
+}
+
+.card-title {
+    font-weight: bold;
+    color: var(--secondary-text-color);
+}
+
+.positive {
+    color: var(--increase-text-color);
+}
+
+.negative {
+    color: var(--decrease-text-color);
+}
