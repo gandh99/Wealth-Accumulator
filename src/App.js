@@ -34,7 +34,9 @@ class App extends Component {
           />
           <Switch>
             <Route path="/overview">
-              <Overview />
+              <Overview 
+                expenses={this.state.expenses}
+              />
             </Route>
             <Route path="/expenses">
               <Expenses

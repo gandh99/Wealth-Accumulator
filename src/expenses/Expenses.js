@@ -11,7 +11,6 @@ import AddExpensesModal from './AddExpenseModal'
 
 export default function Expenses(props) {
     const [showModal, setShowModal] = React.useState(false)
-    // const [expenses, setExpenses] = React.useState([])
     const [expenses, setExpenses] = React.useState(props.expenses)
 
     return (

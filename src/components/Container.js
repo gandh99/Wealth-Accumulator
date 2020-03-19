@@ -7,6 +7,7 @@ export default function Container(props) {
             {props.utilityBar}
             {props.modal}
             {props.cardContainer}
+            {props.chartContainer}
         </div>
     )
 }
