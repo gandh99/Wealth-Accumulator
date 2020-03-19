@@ -53,7 +53,7 @@
 
 .radio-button-container input:checked~.checkmark {
     background-color: var(--primary-background-color);
-    border: solid 1.5px var(--add-button-color);
+    border: solid 1.5px var(--primary-component-color);
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -83,7 +83,7 @@
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: var(--add-button-color);
+    background: var(--primary-component-color);
     border: solid 2px var(--primary-background-color);
 }
 

@@ -3,7 +3,7 @@ import Container from '../components/Container'
 import ButtonGroup from '../components/ButtonGroup'
 import AddButton from '../components/AddButton'
 import UtilityBar from '../components/UtilityBar'
-import AddExpensesModal from '../expenses/AddExpenseModal'
+import AddAssetModal from './AddAssetModal'
 
 export default function Assets(props) {
     const [showModal, setShowModal] = React.useState(false)
@@ -27,12 +27,12 @@ export default function Assets(props) {
                 />
             }
             modal={
-                <AddExpensesModal
+                <AddAssetModal
                     show={showModal}
                     onHide={() => setShowModal(false)}
-                    expenses={assets}
-                    setExpenses={setAssets}
-                    saveExpensesToApp={props.saveAssetsToApp}
+                    assets={assets}
+                    setAssets={setAssets}
+                    saveAssetsToApp={props.saveAssetsToApp}
                 />
             }
             // cardContainer={

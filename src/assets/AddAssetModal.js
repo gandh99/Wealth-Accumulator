@@ -5,20 +5,20 @@ import '../forms/form.css'
 import RadioGroup from '../forms/RadioGroup'
 import { isValidName, isValidPositiveNumber, isValidPercentage, isValidOption } from '../forms/input-validation'
 
-export default function AddExpenseModal(props) {
+export default function AddAssetModal(props) {
     // Expenses state
-    const [expenseName, setExpenseName] = React.useState('')
-    const [expenseAmount, setExpenseAmount] = React.useState(0)
+    const [assetName, setAssetName] = React.useState('')
+    const [assetAmount, setAssetAmount] = React.useState(0)
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
     const [expensePercentageChangeFrequency, setExpensePercentageChangeFrequency] = React.useState('')
 
-    const submitExpenses = (e) => {
+    const submitAssets = (e) => {
         e.preventDefault()
 
         // Check for errors
-        if (!isValidName(expenseName)
-            || !isValidPositiveNumber(expenseAmount)
+        if (!isValidName(assetName)
+            || !isValidPositiveNumber(assetAmount)
             || !isValidPercentage(expensePercentageChange)
             || !isValidOption(expenseFrequency)
             || !isValidOption(expensePercentageChangeFrequency)) {
@@ -27,17 +27,17 @@ export default function AddExpenseModal(props) {
 
         // Update expenses in parents
         const expensesData = {
-            expenseName,
-            expenseAmount,
+            expenseName: assetName,
+            expenseAmount: assetAmount,
             expenseFrequency,
             expensePercentageChange,
             expensePercentageChangeFrequency
         }
-        props.setExpenses([
-            ...props.expenses, expensesData
+        props.setAssets([
+            ...props.assets, expensesData
         ])
-        props.saveExpensesToApp([
-            ...props.expenses, expensesData
+        props.saveAssetsToApp([
+            ...props.assets, expensesData
         ])
 
         // Clear modal state
@@ -48,8 +48,8 @@ export default function AddExpenseModal(props) {
     }
 
     const clearModalState = () => {
-        setExpenseName('')
-        setExpenseAmount(0)
+        setAssetName('')
+        setAssetAmount(0)
         setExpenseFrequency('')
         setExpensePercentageChange(0)
         setExpensePercentageChangeFrequency('')
@@ -65,31 +65,57 @@ export default function AddExpenseModal(props) {
         >
             <Modal.Header className='modal-header'>
                 <Modal.Title id="contained-modal-title-vcenter" className='modal-title'>
-                    Add Expense
+                    Add Asset
                 </Modal.Title>
             </Modal.Header>
-            <Form onSubmit={submitExpenses}>
+            <Form onSubmit={submitAssets}>
                 <Modal.Body className='modal-body'>
-                    <Form.Group controlId="expenseName">
+                    <Form.Group controlId="assetName">
                         <Form.Control
                             className='form-text-input'
                             type="text"
-                            placeholder="Enter name of expense"
-                            onChange={(e) => setExpenseName(e.target.value)}
+                            placeholder="Enter name of asset"
+                            onChange={(e) => setAssetName(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group controlId="expenseAmount">
+                    <Form.Group controlId="assetAmount">
                         <Form.Control
                             className='form-text-input'
                             type="text"
-                            placeholder="Enter expense amount"
-                            onChange={(e) => setExpenseAmount(e.target.value)}
+                            placeholder="Enter current asset value"
+                            onChange={(e) => setAssetAmount(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="assetContribution">
+                        <Form.Control
+                            className='form-text-input'
+                            type="text"
+                            placeholder="Enter amount of periodic contribution"
+                            onChange={(e) => setAssetAmount(e.target.value)}
                         />
                     </Form.Group>
                     <RadioGroup
-                        id={'expenseFrequency'}
+                        id={'assetContributionFrequency'}
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
+                        onRadioSelect={(frequency) => {
+                            // This radio group will set the frequency for both expense amount and % change
+                            setExpenseFrequency(frequency)
+                            setExpensePercentageChangeFrequency(frequency)
+                        }}
+                    />
+                    <Form.Group controlId="assetPayout">
+                        <Form.Control
+                            className='form-text-input'
+                            type="text"
+                            placeholder="Enter amount of annual yield"
+                            onChange={(e) => setAssetAmount(e.target.value)}
+                        />
+                    </Form.Group>
+                    <RadioGroup
+                        id={'assetAnnualYield'}
+                        optionNames={['Fixed Value', '% of Asset Value']}
+                        optionValues={['fixed', 'percent']}
                         onRadioSelect={(frequency) => {
                             // This radio group will set the frequency for both expense amount and % change
                             setExpenseFrequency(frequency)
@@ -100,7 +126,7 @@ export default function AddExpenseModal(props) {
                         <Form.Control
                             className='form-text-input'
                             type="text"
-                            placeholder="Enter percentage change"
+                            placeholder="Enter annual percentage change of asset value"
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>

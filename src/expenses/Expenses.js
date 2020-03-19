@@ -6,7 +6,7 @@ import Container from '../components/Container'
 import UtilityBar from '../components/UtilityBar'
 import ButtonGroup from '../components/ButtonGroup'
 import CardContainer from '../components/CardContainer'
-import AddExpensesModal from './AddExpenseModal'
+import AddExpenseModal from './AddExpenseModal'
 
 export default function Expenses(props) {
     const [showModal, setShowModal] = React.useState(false)
@@ -30,7 +30,7 @@ export default function Expenses(props) {
                 />
             }
             modal={
-                <AddExpensesModal
+                <AddExpenseModal
                     show={showModal}
                     onHide={() => setShowModal(false)}
                     expenses={expenses}
