@@ -8,7 +8,6 @@ export default function ExpenseCard(props) {
         expenseAmount,
         expenseFrequency,
         expensePercentageChange,
-        expensePercentageChangeFrequency
     } = props.expense
 
     const percentageStyle = (Number(expensePercentageChange) >= 0) ? 'positive' : 'negative'
@@ -24,7 +23,7 @@ export default function ExpenseCard(props) {
             <div className='expense-percentage-change-container'>
                 <div className={'expense-percentage-change ' + percentageStyle}>
                     {expensePercentageChange >= 0 && '+'}
-                    {`${expensePercentageChange}% per ${expensePercentageChangeFrequency}`}
+                    {`${expensePercentageChange}% per ${expenseFrequency}`}
                 </div>
             </div>
         </div>

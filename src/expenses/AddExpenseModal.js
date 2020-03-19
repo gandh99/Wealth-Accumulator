@@ -11,7 +11,6 @@ export default function AddExpenseModal(props) {
     const [expenseAmount, setExpenseAmount] = React.useState(0)
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
-    const [expensePercentageChangeFrequency, setExpensePercentageChangeFrequency] = React.useState('')
 
     const submitExpenses = (e) => {
         e.preventDefault()
@@ -20,8 +19,7 @@ export default function AddExpenseModal(props) {
         if (!isValidName(expenseName)
             || !isValidPositiveNumber(expenseAmount)
             || !isValidPercentage(expensePercentageChange)
-            || !isValidOption(expenseFrequency)
-            || !isValidOption(expensePercentageChangeFrequency)) {
+            || !isValidOption(expenseFrequency)) {
             return
         }
 
@@ -31,7 +29,6 @@ export default function AddExpenseModal(props) {
             expenseAmount,
             expenseFrequency,
             expensePercentageChange,
-            expensePercentageChangeFrequency
         }
         props.setExpenses([
             ...props.expenses, expensesData
@@ -52,7 +49,6 @@ export default function AddExpenseModal(props) {
         setExpenseAmount(0)
         setExpenseFrequency('')
         setExpensePercentageChange(0)
-        setExpensePercentageChangeFrequency('')
     }
 
     return (
@@ -93,7 +89,6 @@ export default function AddExpenseModal(props) {
                         onRadioSelect={(frequency) => {
                             // This radio group will set the frequency for both expense amount and % change
                             setExpenseFrequency(frequency)
-                            setExpensePercentageChangeFrequency(frequency)
                         }}
                     />
                     <Form.Group controlId="expensePercentageChange">

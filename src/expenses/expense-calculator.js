@@ -6,7 +6,6 @@ Input for variable expense:
     expenseAmount: ...,
     expenseFrequency: ...,
     expensePercentageChange: ...,
-    expensePercentageChangeFrequency: ...,
     expenseName: (not used)
 }, {...}, {...}, ...]
 
@@ -18,7 +17,7 @@ Output for expenseData:
 */
 export function generateExpenseData(expense, totalExpense) {
     let {
-        expenseAmount, expenseFrequency, expensePercentageChange, expensePercentageChangeFrequency
+        expenseAmount, expenseFrequency, expensePercentageChange
     } = expense
 
     // Convert to number

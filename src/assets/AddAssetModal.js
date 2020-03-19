@@ -11,7 +11,6 @@ export default function AddAssetModal(props) {
     const [assetAmount, setAssetAmount] = React.useState(0)
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
-    const [expensePercentageChangeFrequency, setExpensePercentageChangeFrequency] = React.useState('')
 
     const submitAssets = (e) => {
         e.preventDefault()
@@ -20,8 +19,7 @@ export default function AddAssetModal(props) {
         if (!isValidName(assetName)
             || !isValidPositiveNumber(assetAmount)
             || !isValidPercentage(expensePercentageChange)
-            || !isValidOption(expenseFrequency)
-            || !isValidOption(expensePercentageChangeFrequency)) {
+            || !isValidOption(expenseFrequency)) {
             return
         }
 
@@ -31,7 +29,6 @@ export default function AddAssetModal(props) {
             expenseAmount: assetAmount,
             expenseFrequency,
             expensePercentageChange,
-            expensePercentageChangeFrequency
         }
         props.setAssets([
             ...props.assets, expensesData
@@ -52,7 +49,6 @@ export default function AddAssetModal(props) {
         setAssetAmount(0)
         setExpenseFrequency('')
         setExpensePercentageChange(0)
-        setExpensePercentageChangeFrequency('')
     }
 
     return (
@@ -101,7 +97,6 @@ export default function AddAssetModal(props) {
                         onRadioSelect={(frequency) => {
                             // This radio group will set the frequency for both expense amount and % change
                             setExpenseFrequency(frequency)
-                            setExpensePercentageChangeFrequency(frequency)
                         }}
                     />
                     <Form.Group controlId="assetPayout">
@@ -119,7 +114,6 @@ export default function AddAssetModal(props) {
                         onRadioSelect={(frequency) => {
                             // This radio group will set the frequency for both expense amount and % change
                             setExpenseFrequency(frequency)
-                            setExpensePercentageChangeFrequency(frequency)
                         }}
                     />
                     <Form.Group controlId="expensePercentageChange">
