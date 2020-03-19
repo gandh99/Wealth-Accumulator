@@ -1,11 +1,7 @@
 export function generateExpenseData(expense) {
-    if (!expense || expense.length <= 0) return
-
-    // Can only handle 1 instance of expense for now
-    let testExpense = expense[0]
     let {
         expenseAmount, expenseFrequency, expensePercentageChange, expensePercentageChangeFrequency
-    } = testExpense
+    } = expense
     
     // Convert to number
     expenseAmount = Number(expenseAmount)
