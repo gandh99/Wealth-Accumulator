@@ -25,7 +25,8 @@ export default function Overview(props) {
                 />
             }
             chartContainer={
-                <ChartContainer 
+                <ChartContainer
+                    title={'Expenses'} 
                     expenses={props.expenses}
                 />
             }

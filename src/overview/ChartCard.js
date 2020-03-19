@@ -5,19 +5,22 @@ import './chart-card.css'
 export default function ChartCard(props) {
     return (
         <div className='chart-card'>
+            <div className='chart-title'>{props.title}</div>
             <ResponsiveContainer>
                 <LineChart
                     data={props.data}
                     margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
                 >
                     <XAxis dataKey="year" />
-                    <YAxis 
-                        // mirror={true}
-                        width={40}  //either mirror this or dynamically set the  width
+                    <YAxis
+                        mirror={true}
                     />
                     <Tooltip />
-                    <Legend />
-                    <Line type="monotone" dataKey="amount" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <Line
+                        type="monotone"
+                        dataKey="amount"
+                        stroke="#7962f2"
+                    />
                 </LineChart>
             </ResponsiveContainer>
         </div>

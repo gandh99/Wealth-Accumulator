@@ -12,14 +12,18 @@ export default function ChartContainer(props) {
         let expenseData = generateExpenseData(expense, totalExpenseData)
         lineCharts.push(
             <ChartCard
+                title={expense.expenseName}
                 data={expenseData}
             />
         )
     })
 
     return (
-        <div className='chart-container'>
-            {lineCharts}
-        </div>
+        <>
+            <div className='chart-container-title'>{props.title}</div>
+            <div className='chart-container'>
+                {lineCharts}
+            </div>
+        </>
     )
 }
