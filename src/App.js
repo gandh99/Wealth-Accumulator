@@ -9,6 +9,7 @@ import Sidebar from './navigation/Sidebar'
 import Overview from './overview/Overview'
 import Header from './navigation/Header';
 import Expenses from './expenses/Expenses';
+import Assets from './assets/Assets';
 
 class App extends Component {
   state = {
@@ -27,21 +28,24 @@ class App extends Component {
           <Header
             toggleSidebar={this.toggleSidebar}
           />
-          <Sidebar 
+          <Sidebar
             showSidebar={this.state.showSidebar}
             toggleSidebar={this.toggleSidebar}
           />
           <Switch>
             <Route path="/overview">
-              <Overview 
+              <Overview
                 expenses={this.state.expenses}
               />
             </Route>
             <Route path="/expenses">
               <Expenses
                 expenses={this.state.expenses}
-                saveExpensesToApp={(expenses) => this.setState({expenses})}
+                saveExpensesToApp={(expenses) => this.setState({ expenses })}
               />
+            </Route>
+            <Route path='/assets'>
+              <Assets />
             </Route>
           </Switch>
         </div>
