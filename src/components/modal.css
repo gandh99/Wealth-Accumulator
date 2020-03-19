@@ -14,9 +14,9 @@
 }
 
 .modal-button {
-    background-color: var(--add-button-color);
+    background-color: var(--primary-component-color);
 }
 
 .modal-button:hover {
-    background-color: var(--add-button-hover-color);
+    background-color: var(--primary-component-hover-color);
 }
