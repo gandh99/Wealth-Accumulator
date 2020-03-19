@@ -90,7 +90,11 @@ export default function AddExpensesModal(props) {
                         id={'expenseFrequency'}
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
-                        onRadioSelect={setExpenseFrequency}
+                        onRadioSelect={(frequency) => {
+                            // This radio group will set the frequency for both expense amount and % change
+                            setExpenseFrequency(frequency)
+                            setExpensePercentageChangeFrequency(frequency)
+                        }}
                     />
                     <Form.Group controlId="expensePercentageChange">
                         <Form.Control
@@ -100,12 +104,6 @@ export default function AddExpensesModal(props) {
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>
-                    <RadioGroup
-                        id={'expensePercentageChangeFrequency'}
-                        optionNames={['Monthly', 'Yearly']}
-                        optionValues={['month', 'year']}
-                        onRadioSelect={setExpensePercentageChangeFrequency}
-                    />
                 </Modal.Body>
                 <Modal.Footer className='modal-footer'>
                     <Button type='submit' className='modal-button'>
