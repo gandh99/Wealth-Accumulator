@@ -8,7 +8,7 @@ export function isValidPositiveNumber(value) {
 }
 
 export function isValidPercentage(value) {
-    return Number(value)
+    return Number(value) || value == '0'
 }
 
 export function isValidOption(option) {
