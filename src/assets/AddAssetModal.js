@@ -6,11 +6,14 @@ import RadioGroup from '../forms/RadioGroup'
 import { isValidName, isValidPositiveNumber, isValidPercentage, isValidOption } from '../forms/input-validation'
 
 export default function AddAssetModal(props) {
-    // Expenses state
+    // Asset state
     const [assetName, setAssetName] = React.useState('')
     const [assetAmount, setAssetAmount] = React.useState(0)
-    const [expenseFrequency, setExpenseFrequency] = React.useState('')
-    const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
+    const [assetContributionAmount, setAssetContributionAmount] = React.useState(0)
+    const [assetContributionFrequency, setAssetContributionFrequency] = React.useState('')
+    const [assetAnnualPayout, setAssetAnnualPayout] = React.useState(0)
+    const [assetAnnualPayoutType, setAssetAnnualPayoutType] = React.useState('')
+    const [assetAnnualPercentageChange, setAssetAnnualPercentageChange] = React.useState(0)
 
     const submitAssets = (e) => {
         e.preventDefault()
@@ -18,23 +21,29 @@ export default function AddAssetModal(props) {
         // Check for errors
         if (!isValidName(assetName)
             || !isValidPositiveNumber(assetAmount)
-            || !isValidPercentage(expensePercentageChange)
-            || !isValidOption(expenseFrequency)) {
+            || !isValidPositiveNumber(assetContributionAmount)
+            || !isValidOption(assetContributionFrequency)
+            || !isValidPositiveNumber(assetAnnualPayout)
+            || !isValidOption(assetAnnualPayoutType)
+            || !isValidPercentage(assetAnnualPercentageChange)) {
             return
         }
 
-        // Update expenses in parents
-        const expensesData = {
-            expenseName: assetName,
-            expenseAmount: assetAmount,
-            expenseFrequency,
-            expensePercentageChange,
+        // Update assets in parents
+        const assetData = {
+            assetName,
+            assetAmount,
+            assetContributionAmount,
+            assetContributionFrequency,
+            assetAnnualPayout,
+            assetAnnualPayoutType,
+            assetAnnualPercentageChange,
         }
         props.setAssets([
-            ...props.assets, expensesData
+            ...props.assets, assetData
         ])
         props.saveAssetsToApp([
-            ...props.assets, expensesData
+            ...props.assets, assetData
         ])
 
         // Clear modal state
@@ -47,8 +56,11 @@ export default function AddAssetModal(props) {
     const clearModalState = () => {
         setAssetName('')
         setAssetAmount(0)
-        setExpenseFrequency('')
-        setExpensePercentageChange(0)
+        setAssetContributionAmount(0)
+        setAssetContributionFrequency('')
+        setAssetAnnualPayout(0)
+        setAssetAnnualPayoutType('')
+        setAssetAnnualPercentageChange(0)
     }
 
     return (
@@ -87,7 +99,7 @@ export default function AddAssetModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter amount of periodic contribution"
-                            onChange={(e) => setAssetAmount(e.target.value)}
+                            onChange={(e) => setAssetContributionAmount(e.target.value)}
                         />
                     </Form.Group>
                     <RadioGroup
@@ -95,33 +107,31 @@ export default function AddAssetModal(props) {
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
                         onRadioSelect={(frequency) => {
-                            // This radio group will set the frequency for both expense amount and % change
-                            setExpenseFrequency(frequency)
+                            setAssetContributionFrequency(frequency)
                         }}
                     />
-                    <Form.Group controlId="assetPayout">
+                    <Form.Group controlId="assetAnnualPayout">
                         <Form.Control
                             className='form-text-input'
                             type="text"
-                            placeholder="Enter amount of annual yield"
-                            onChange={(e) => setAssetAmount(e.target.value)}
+                            placeholder="Enter amount of annual payout"
+                            onChange={(e) => setAssetAnnualPayout(e.target.value)}
                         />
                     </Form.Group>
                     <RadioGroup
-                        id={'assetAnnualYield'}
+                        id={'assetAnnualPayoutType'}
                         optionNames={['Fixed Value', '% of Asset Value']}
                         optionValues={['fixed', 'percent']}
-                        onRadioSelect={(frequency) => {
-                            // This radio group will set the frequency for both expense amount and % change
-                            setExpenseFrequency(frequency)
+                        onRadioSelect={(payoutType) => {
+                            setAssetAnnualPayoutType(payoutType)
                         }}
                     />
-                    <Form.Group controlId="expensePercentageChange">
+                    <Form.Group controlId="assetAnnualPercentageChange">
                         <Form.Control
                             className='form-text-input'
                             type="text"
                             placeholder="Enter annual percentage change of asset value"
-                            onChange={(e) => setExpensePercentageChange(e.target.value)}
+                            onChange={(e) => setAssetAnnualPercentageChange(e.target.value)}
                         />
                     </Form.Group>
                 </Modal.Body>
