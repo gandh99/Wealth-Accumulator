@@ -4,6 +4,9 @@
     height: 300px;
     background-color: var(--primary-background-color);
     padding: 1rem 2rem 3rem 2rem;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.09);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.09);
 }
 
 .chart-title {

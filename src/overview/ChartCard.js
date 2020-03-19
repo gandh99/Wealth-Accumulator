@@ -11,10 +11,8 @@ export default function ChartCard(props) {
                     data={props.data}
                     margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
                 >
-                    <XAxis dataKey="year" />
-                    <YAxis
-                        mirror={true}
-                    />
+                    <XAxis dataKey="year" stroke='#524e62' />
+                    <YAxis mirror={true} stroke='#524e62' />
                     <Tooltip />
                     <Line
                         type="monotone"
