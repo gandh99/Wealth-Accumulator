@@ -13,3 +13,12 @@ export function transformArraysToObject(nameArray, valueArray) {
     
     return obj
 }
+
+export function convertFrequencyToQuantityPerYear(frequency) {
+    const frequencyToQuantityPerYear = {
+        month: 12,
+        year: 1
+    }
+
+    return frequencyToQuantityPerYear[frequency]
+}

@@ -1,3 +1,5 @@
+import { convertFrequencyToQuantityPerYear } from "../utils/utility"
+
 export function generateExpenseData(expense) {
     let {
         expenseAmount, expenseFrequency, expensePercentageChange, expensePercentageChangeFrequency
@@ -22,13 +24,4 @@ export function generateExpenseData(expense) {
     }
 
     return data
-}
-
-function convertFrequencyToQuantityPerYear(frequency) {
-    const frequencyToQuantityPerYear = {
-        month: 12,
-        year: 1
-    }
-
-    return frequencyToQuantityPerYear[frequency]
 }
