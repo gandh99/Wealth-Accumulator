@@ -2,6 +2,7 @@ import React from 'react'
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts'
+import { generateExpenseData } from '../expenses/expense-calculator'
 
 export default function ChartContainer(props) {
     let data = generateExpenseData(props.expenses)
@@ -23,39 +24,4 @@ export default function ChartContainer(props) {
             {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         </LineChart>
     )
-}
-
-function generateExpenseData(expense) {
-    if (!expense || expense.length <= 0) return
-    let testExpense = expense[0]
-    let {
-        expenseAmount, expenseFrequency, expensePercentageChange, expensePercentageChangeFrequency
-    } = testExpense
-    
-    // Convert to number
-    expenseAmount = Number(expenseAmount)
-    expensePercentageChange = Number(expensePercentageChange)
-
-    let data = []
-    let years = 10  
-    let currentAmount = expenseAmount
-    let numOfExpensesPerYear = convertFrequencyToQuantityPerYear(expenseFrequency)
-    for (let i = 0; i <= years; i++) {
-        data.push({
-            year: i,
-            amount: currentAmount * numOfExpensesPerYear
-        })
-        currentAmount += currentAmount * (expensePercentageChange / 100)
-    }
-
-    return data
-}
-
-function convertFrequencyToQuantityPerYear(frequency) {
-    const frequencyToQuantityPerYear = {
-        month: 12,
-        year: 1
-    }
-
-    return frequencyToQuantityPerYear[frequency]
 }
