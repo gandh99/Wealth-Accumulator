@@ -39,11 +39,11 @@ export function generateExpenseData(expense, totalExpense) {
         // Update the individual expense data
         expenseData.push({
             year: i + 1,
-            amount: cumulativeAmount
+            amount: Math.round(cumulativeAmount)
         })
 
         // Update the total expense data
-        totalExpense[i].amount += cumulativeAmount
+        totalExpense[i].amount += Math.round(cumulativeAmount)
 
         // Compute the new cumulative amount for the following year
         expenseAmount += expenseAmount * (expensePercentageChange / 100)

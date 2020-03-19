@@ -1,7 +1,6 @@
 import React from 'react'
 import './expenses.css'
 import AddButton from '../components/AddButton'
-import AddExpenseModal from './AddExpenseModal'
 import ExpenseCard from './ExpenseCard'
 import Container from '../components/Container'
 import UtilityBar from '../components/UtilityBar'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { LineChart, XAxis, YAxis, Tooltip, Legend, Line, ResponsiveContainer } from 'recharts'
+import { LineChart, XAxis, YAxis, Tooltip, Line, ResponsiveContainer } from 'recharts'
 import './chart-card.css'
 
 export default function ChartCard(props) {
