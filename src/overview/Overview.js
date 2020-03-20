@@ -11,24 +11,32 @@ import { generateIncomeData } from '../income/income-calculator'
 export default function Overview(props) {
     const style = getComputedStyle(document.documentElement)
 
+    // Use this to track overall wealth
+    const [totalIncomeData, setTotalIncomeData] = React.useState([])
+    const [totalAssetData, setTotalAssetData] = React.useState([])
+    const [totalExpenseData, setTotalExpenseData] = React.useState([])
+   
     const chartContainers = [
         <ChartContainer
             title={'Incomes'}
             items={props.incomes}
             chartColor={style.getPropertyValue('--increase-text-color')}
             generateData={generateIncomeData}
+            saveTotalAmountData={setTotalIncomeData}
         />,
         <ChartContainer
             title={'Assets'}
             items={props.assets}
             chartColor={style.getPropertyValue('--secondary-component-color')}
             generateData={generateAssetData}
+            saveTotalAmountData={setTotalAssetData}
         />,
         <ChartContainer
             title={'Expenses'}
             items={props.expenses}
             chartColor={style.getPropertyValue('--tertiary-component-color')}
             generateData={generateExpenseData}
+            saveTotalAmountData={setTotalExpenseData}
         />,
     ]
 

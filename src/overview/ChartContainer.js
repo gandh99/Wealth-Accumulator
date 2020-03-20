@@ -28,6 +28,12 @@ export default function ChartContainer(props) {
             />
             : null
 
+    // Save the total items amount data to Overview. useState() is required because setting of state should 
+    // never be done during rendering!
+    React.useState(() => {
+        props.saveTotalAmountData(totalItemsAmountData)
+    }, [])
+
     // Decide what to render
     let renderChart =
         <div className='chart-container'>
