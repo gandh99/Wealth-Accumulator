@@ -6,6 +6,7 @@
     border: none;
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
+    padding-bottom: 1rem;
 }
 
 .card * {

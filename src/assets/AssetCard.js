@@ -18,25 +18,37 @@ export default function AssetCard(props) {
     return (
         <div className='card'>
             <div className='card-title'>{assetName}</div>
-            <div className='asset-amount-container'>
+            <div className='primary-information-container'>
                 <div className='asset-currency'>$</div>
                 <div className='asset-amount'>{`${numberWithCommas(assetAmount)}`}</div>
             </div>
-            <div className='asset-contribution-container'>
+            <div className='secondary-information-container asset-contribution-container'>
                 <div className='asset-currency'>+$</div>
-                <div className='asset-contribution-amount'>{`${numberWithCommas(assetContributionAmount)}`}</div>
+                <div className='asset-contribution-amount'>
+                    {`${numberWithCommas(assetContributionAmount)}`}
+                </div>
                 <div className='asset-contribution-frequency'>{` per ${assetContributionFrequency}`}</div>
             </div>
-            <div className='asset-annual-payout-container'>
-                <div className='asset-annual-payout-amount'>{`${numberWithCommas(assetAnnualPayout)}`}</div>
-                <div className='asset-annual-payout-type'>{`${assetAnnualPayoutType}`}</div>
+            <div className='secondary-information-container asset-annual-payout-container'>
+                <div className='asset-annual-payout-amount'>
+                    {`+${formatAnnualPayoutText(assetAnnualPayout, assetAnnualPayoutType)}`}
+                </div>
+                <div className='asset-annual-payout-type'>{` annual payout`}</div>
             </div>
-            <div className='asset-annual-percentage-change-container'>
+            <div className='secondary-information-container'>
                 <div className={'asset-annual-percentage-change ' + percentageStyle}>
                     {assetAnnualPercentageChange >= 0 && '+'}
-                    {`${assetAnnualPercentageChange}%`}
+                    {`${assetAnnualPercentageChange}% asset value per year`}
                 </div>
             </div>
         </div>
     )
+}
+
+function formatAnnualPayoutText(assetAnnualPayout, assetAnnualPayoutType) {
+    if (assetAnnualPayoutType === 'fixed') {
+        return `$${numberWithCommas(assetAnnualPayout)}`
+    } else if (assetAnnualPayoutType === 'percent') {
+        return `${numberWithCommas(assetAnnualPayout)}%`
+    }
 }
