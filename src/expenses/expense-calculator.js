@@ -55,7 +55,7 @@ export function generateExpenseData(expense, totalExpense) {
 function initTotalExpense(totalExpense, years) {
     for (let i = 0; i < years; i++) {
         totalExpense.push({
-            year: i,
+            year: i + 1,
             amount: 0
         })
     }

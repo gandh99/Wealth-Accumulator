@@ -11,7 +11,7 @@ export default function ChartContainer(props) {
         let itemData = props.generateData(item, totalItemsAmountData)
         lineChartsForIndividualItems.push(
             <ChartCard
-                title={item.expenseName || item.assetName} //TODO
+                title={item.incomeName || item.assetName || item.expenseName}
                 data={itemData}
                 chartColor={props.chartColor}
             />

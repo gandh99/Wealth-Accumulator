@@ -79,7 +79,7 @@ function calculatePayoutAmount(payoutAmount, payoutType, currentAssetValue) {
 function initTotalAsset(totalAsset, years) {
     for (let i = 0; i < years; i++) {
         totalAsset.push({
-            year: i,
+            year: i + 1,
             amount: 0
         })
     }

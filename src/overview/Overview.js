@@ -6,11 +6,18 @@ import AddButton from '../components/AddButton'
 import ChartContainer from './ChartContainer'
 import { generateExpenseData } from '../expenses/expense-calculator'
 import { generateAssetData } from '../assets/asset-calculator'
+import { generateIncomeData } from '../income/income-calculator'
 
 export default function Overview(props) {
     const style = getComputedStyle(document.documentElement)
 
     const chartContainers = [
+        <ChartContainer
+            title={'Incomes'}
+            items={props.incomes}
+            chartColor={style.getPropertyValue('--increase-text-color')}
+            generateData={generateIncomeData}
+        />,
         <ChartContainer
             title={'Assets'}
             items={props.assets}
