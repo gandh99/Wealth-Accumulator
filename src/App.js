@@ -10,12 +10,14 @@ import Overview from './overview/Overview'
 import Header from './navigation/Header';
 import Expenses from './expenses/Expenses';
 import Assets from './assets/Assets';
+import Income from './income/Income';
 
 class App extends Component {
   state = {
     showSidebar: false,
+    incomes: [],
+    assets: [],
     expenses: [],
-    assets: []
   }
 
   toggleSidebar = (showSidebar) => {
@@ -40,16 +42,22 @@ class App extends Component {
                 assets={this.state.assets}
               />
             </Route>
-            <Route path="/expenses">
-              <Expenses
-                expenses={this.state.expenses}
-                saveExpensesToApp={(expenses) => this.setState({ expenses })}
+            <Route path="/incomes">
+              <Income
+                incomes={this.state.incomes}
+                saveIncomesToApp={(incomes) => this.setState({ incomes })}
               />
             </Route>
             <Route path='/assets'>
               <Assets 
                 assets={this.state.assets}
                 saveAssetsToApp={(assets) => this.setState({ assets })}
+              />
+            </Route>
+            <Route path="/expenses">
+              <Expenses
+                expenses={this.state.expenses}
+                saveExpensesToApp={(expenses) => this.setState({ expenses })}
               />
             </Route>
           </Switch>

@@ -24,7 +24,9 @@ export default class Sidebar extends Component {
                     <Link to='/overview'>
                         <div className='sidebar-option'>Overview</div>
                     </Link>
-                    <div className='sidebar-option'>Income</div>
+                    <Link to='/incomes'>
+                        <div className='sidebar-option'>Income</div>
+                    </Link>
                     <Link to='/assets'>
                         <div className='sidebar-option'>Assets</div>
                     </Link>
