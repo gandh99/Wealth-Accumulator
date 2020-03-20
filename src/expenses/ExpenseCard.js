@@ -1,5 +1,5 @@
 import React from 'react'
-import './expense-card.css'
+import '../components/card.css'
 import { numberWithCommas } from '../utils/utility'
 
 export default function ExpenseCard(props) {

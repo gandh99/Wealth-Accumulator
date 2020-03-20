@@ -86,9 +86,7 @@ export default function AddIncomeModal(props) {
                         id={'incomeFrequency'}
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
-                        onRadioSelect={(frequency) => {
-                            setIncomeFrequency(frequency)
-                        }}
+                        onRadioSelect={frequency => setIncomeFrequency(frequency)}
                     />
                     <Form.Group controlId="incomePercentageChange">
                         <Form.Control

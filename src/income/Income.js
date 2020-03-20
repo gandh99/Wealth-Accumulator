@@ -4,6 +4,8 @@ import UtilityBar from '../components/UtilityBar'
 import ButtonGroup from '../components/ButtonGroup'
 import AddButton from '../components/AddButton'
 import AddIncomeModal from './AddIncomeModal'
+import CardContainer from '../components/CardContainer'
+import IncomeCard from './IncomeCard'
 
 export default function Income(props) {
     const [showModal, setShowModal] = React.useState(false)
@@ -35,17 +37,17 @@ export default function Income(props) {
                     saveIncomesToApp={props.saveIncomesToApp}
                 />
             }
-            // cardContainer={
-            //     <CardContainer
-            //         cards={
-            //             incomes.map(expense => (
-            //                 <ExpenseCard
-            //                     expense={expense}
-            //                 />
-            //             ))
-            //         }
-            //     />
-            // }
+            cardContainer={
+                <CardContainer
+                    cards={
+                        incomes.map(income => (
+                            <IncomeCard
+                                income={income}
+                            />
+                        ))
+                    }
+                />
+            }
         />
     )
 }
