@@ -1,6 +1,7 @@
 @import url('../styles.css');
 
 .container {
+    padding-bottom: 3rem;
 }
 
 .container > * {

@@ -13,6 +13,7 @@ export default function ChartContainer(props) {
             <ChartCard
                 title={item.expenseName || item.assetName} //TODO
                 data={itemData}
+                chartColor={props.chartColor}
             />
         )
     })
@@ -23,6 +24,7 @@ export default function ChartContainer(props) {
             ? <ChartCard
                 title={`Total ${props.title}`}
                 data={totalItemsAmountData}
+                chartColor={props.chartColor}
             />
             : null
 

@@ -17,7 +17,7 @@ export default function ChartCard(props) {
                     <Line
                         type="monotone"
                         dataKey="amount"
-                        stroke="#7962f2"
+                        stroke={props.chartColor}
                     />
                 </LineChart>
             </ResponsiveContainer>
