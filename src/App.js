@@ -37,6 +37,7 @@ class App extends Component {
             <Route path="/overview">
               <Overview
                 expenses={this.state.expenses}
+                assets={this.state.assets}
               />
             </Route>
             <Route path="/expenses">

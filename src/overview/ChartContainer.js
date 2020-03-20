@@ -1,29 +1,28 @@
 import React from 'react'
-import { generateExpenseData } from '../expenses/expense-calculator'
 import ChartCard from './ChartCard'
 import './chart-container.css'
 
 export default function ChartContainer(props) {
-    let lineChartsForIndividualExpenses = []
-    let totalExpenseData = []
+    let lineChartsForIndividualItems = []
+    let totalItemsAmountData = []
 
-    // Generate expense data for each and every individual expense
-    props.expenses.map(expense => {
-        let expenseData = generateExpenseData(expense, totalExpenseData)
-        lineChartsForIndividualExpenses.push(
+    // Generate item data and chart for each and every individual item (expenses, assets or incomes)
+    props.items.map(item => {
+        let itemData = props.generateData(item, totalItemsAmountData)
+        lineChartsForIndividualItems.push(
             <ChartCard
-                title={expense.expenseName}
-                data={expenseData}
+                title={item.expenseName || item.assetName} //TODO
+                data={itemData}
             />
         )
     })
 
-    // Create chart for total expense data
-    let lineChartForTotalExpenses =
-        (totalExpenseData.length > 0)
+    // Create chart for total items amount data (refers to the sum of all expenses, assets or incomes)
+    let lineChartForTotalItemsAmount =
+        (totalItemsAmountData.length > 0)
             ? <ChartCard
                 title={`Total ${props.title}`}
-                data={totalExpenseData}
+                data={totalItemsAmountData}
             />
             : null
 
@@ -31,8 +30,8 @@ export default function ChartContainer(props) {
         <>
             <div className='chart-container-title'>{props.title}</div>
             <div className='chart-container'>
-                {lineChartForTotalExpenses}
-                {lineChartsForIndividualExpenses}
+                {lineChartForTotalItemsAmount}
+                {lineChartsForIndividualItems}
             </div>
         </>
     )
