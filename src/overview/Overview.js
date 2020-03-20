@@ -7,6 +7,7 @@ import ChartContainer from './ChartContainer'
 import { generateExpenseData } from '../expenses/expense-calculator'
 import { generateAssetData } from '../assets/asset-calculator'
 import { generateIncomeData } from '../income/income-calculator'
+import OverallChartContainer from './OverallChartContainer'
 
 export default function Overview(props) {
     const style = getComputedStyle(document.documentElement)
@@ -17,6 +18,11 @@ export default function Overview(props) {
     const [totalExpenseData, setTotalExpenseData] = React.useState([])
    
     const chartContainers = [
+        <OverallChartContainer 
+            title={'Overall Wealth'}
+            data={{totalIncomeData, totalAssetData, totalExpenseData}}
+            chartColor={style.getPropertyValue('--primary-component-color')}
+        />,
         <ChartContainer
             title={'Incomes'}
             items={props.incomes}
