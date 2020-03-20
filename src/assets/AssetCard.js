@@ -19,27 +19,28 @@ export default function AssetCard(props) {
         <div className='card'>
             <div className='card-title'>{assetName}</div>
             <div className='primary-information-container'>
-                <div className='asset-currency'>$</div>
-                <div className='asset-amount'>{`${numberWithCommas(assetAmount)}`}</div>
+                <div className='currency'>$</div>
+                <div className='primary-information-value'>{`${numberWithCommas(assetAmount)}`}</div>
             </div>
             <div className='secondary-information-container asset-contribution-container'>
                 <div className='asset-currency'>+$</div>
                 <div className='asset-contribution-amount'>
                     {`${numberWithCommas(assetContributionAmount)}`}
                 </div>
-                <div className='asset-contribution-frequency'>{` per ${assetContributionFrequency}`}</div>
+                <div className='supplementary-text'>{` contribution per ${assetContributionFrequency}`}</div>
             </div>
             <div className='secondary-information-container asset-annual-payout-container'>
                 <div className='asset-annual-payout-amount'>
                     {`+${formatAnnualPayoutText(assetAnnualPayout, assetAnnualPayoutType)}`}
                 </div>
-                <div className='asset-annual-payout-type'>{` annual payout`}</div>
+                <div className='supplementary-text'>{` annual payout`}</div>
             </div>
             <div className='secondary-information-container'>
                 <div className={'asset-annual-percentage-change ' + percentageStyle}>
                     {assetAnnualPercentageChange >= 0 && '+'}
-                    {`${assetAnnualPercentageChange}% asset value per year`}
+                    {`${assetAnnualPercentageChange}%`}
                 </div>
+                <div className='supplementary-text'>{` asset value per year`}</div>
             </div>
         </div>
     )

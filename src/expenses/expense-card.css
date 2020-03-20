@@ -1,23 +1,2 @@
 @import url('../styles.css');
 @import url('../components/card.css');
-
-.expense-amount-container, .expense-percentage-change-container {
-    margin-top: 0;
-    padding: 0;
-    text-transform: uppercase;
-}
-
-.expense-currency, .expense-amount, .expense-frequency, .expense-percentage-change {
-    display: inline;
-    margin: 0;
-}
-
-.expense-amount {
-    font-size: 3rem;
-}
-
-.expense-frequency {
-    font-size: 0.8rem;
-    margin-left: 1rem;
-    color: var(--secondary-text-color);
-}

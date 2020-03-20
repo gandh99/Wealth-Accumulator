@@ -15,16 +15,17 @@ export default function ExpenseCard(props) {
     return (
         <div className='card'>
             <div className='card-title'>{expenseName}</div>
-            <div className='expense-amount-container'>
-                <div className='expense-currency'>$</div>
-                <div className='expense-amount'>{`${numberWithCommas(expenseAmount)}`}</div>
-                <div className='expense-frequency'>{` per ${expenseFrequency}`}</div>
+            <div className='primary-information-container'>
+                <div className='currency'>$</div>
+                <div className='primary-information-value'>{`${numberWithCommas(expenseAmount)}`}</div>
+                <div className='supplementary-text'>{` per ${expenseFrequency}`}</div>
             </div>
-            <div className='expense-percentage-change-container'>
-                <div className={'expense-percentage-change ' + percentageStyle}>
+            <div className='secondary-information-container'>
+                <div className={percentageStyle}>
                     {expensePercentageChange >= 0 && '+'}
-                    {`${expensePercentageChange}% per ${expenseFrequency}`}
+                    {`${expensePercentageChange}%`}
                 </div>
+                <div className='supplementary-text'>{` expenditure per ${expenseFrequency}`}</div>
             </div>
         </div>
     )

@@ -19,6 +19,27 @@
     color: var(--secondary-text-color);
 }
 
+.primary-information-container, 
+.secondary-information-container {
+    margin-top: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.primary-information-container *, .secondary-information-container * {
+    display: inline;
+    margin: 0;
+}
+
+.primary-information-value {
+    font-size: 3rem;
+}
+
+.supplementary-text {
+    color: var(--secondary-text-color);
+    font-weight: normal;
+}
+
 .positive {
     color: var(--increase-text-color);
 }

@@ -1,32 +1,6 @@
 @import url('../styles.css');
 @import url('../components/card.css');
 
-.primary-information-container, 
-.secondary-information-container {
-    margin-top: 0;
-    padding: 0;
-    text-transform: uppercase;
-}
-
-.primary-information-container *, .secondary-information-container * {
-    display: inline;
-    margin: 0;
-}
-
-.asset-amount {
-    font-size: 3rem;
-}
-
 .asset-contribution-container, .asset-annual-payout-container {
     color: var(--increase-text-color);
-}
-
-.expense-frequency {
-    font-size: 0.8rem;
-    margin-left: 1rem;
-    color: var(--secondary-text-color);
-}
-
-.asset-annual-percentage-change-container {
-    padding-bottom: 1rem;
 }
