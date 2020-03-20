@@ -26,13 +26,23 @@ export default function ChartContainer(props) {
             />
             : null
 
+    // Decide what to render
+    let renderChart =
+        <div className='chart-container'>
+            {lineChartForTotalItemsAmount}
+            {lineChartsForIndividualItems}
+        </div>
+    let renderErrorMessage =
+        <div className='chart-error-message'>No {props.title.toLowerCase()} to show</div>
+    let renderElement =
+        (lineChartForTotalItemsAmount && lineChartsForIndividualItems)
+            ? renderChart
+            : renderErrorMessage
+
     return (
         <>
             <div className='chart-container-title'>{props.title}</div>
-            <div className='chart-container'>
-                {lineChartForTotalItemsAmount}
-                {lineChartsForIndividualItems}
-            </div>
+            {renderElement}
         </>
     )
 }

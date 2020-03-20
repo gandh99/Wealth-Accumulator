@@ -14,3 +14,9 @@
     text-align: left;
     color: var(--secondary-text-color);
 }
+
+.chart-error-message {
+    text-align: left;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
