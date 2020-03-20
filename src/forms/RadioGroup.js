@@ -3,6 +3,7 @@ import './radio-button.css'
 import { transformArraysToObject } from '../utils/utility'
 
 export default function RadioGroup(props) {
+    // options = [{name: optionName1, value: optionValue1}, {name: optionName2, value: optionValue2}, ...]
     const options = transformArraysToObject(props.optionNames, props.optionValues)
     
     return (

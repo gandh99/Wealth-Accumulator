@@ -4,6 +4,8 @@ import ButtonGroup from '../components/ButtonGroup'
 import AddButton from '../components/AddButton'
 import UtilityBar from '../components/UtilityBar'
 import AddAssetModal from './AddAssetModal'
+import AssetCard from './AssetCard'
+import CardContainer from '../components/CardContainer'
 
 export default function Assets(props) {
     const [showModal, setShowModal] = React.useState(false)
@@ -35,17 +37,17 @@ export default function Assets(props) {
                     saveAssetsToApp={props.saveAssetsToApp}
                 />
             }
-            // cardContainer={
-            //     <CardContainer
-            //         cards={
-            //             expenses.map(expense => (
-            //                 <ExpenseCard
-            //                     expense={expense}
-            //                 />
-            //             ))
-            //         }
-            //     />
-            // }
+            cardContainer={
+                <CardContainer
+                    cards={
+                        assets.map(asset => (
+                            <AssetCard
+                                asset={asset}
+                            />
+                        ))
+                    }
+                />
+            }
         />
     )
 }

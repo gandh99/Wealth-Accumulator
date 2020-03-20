@@ -1,0 +1,40 @@
+@import url('../styles.css');
+@import url('../components/card.css');
+
+.asset-amount-container, 
+.asset-contribution-container, 
+.asset-annual-payout-container, 
+.asset-annual-percentage-change-container {
+    margin-top: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.asset-currency, 
+.asset-amount, 
+.asset-contribution-amount, 
+.asset-contribution-frequency, 
+.asset-annual-payout-amount, 
+.asset-annual-payout-type, 
+.asset-annual-percentage-change {
+    display: inline;
+    margin: 0;
+}
+
+.asset-amount {
+    font-size: 3rem;
+}
+
+.asset-contribution-container {
+    color: var(--increase-text-color);
+}
+
+.expense-frequency {
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    color: var(--secondary-text-color);
+}
+
+.asset-annual-percentage-change-container {
+    padding-bottom: 1rem;
+}
