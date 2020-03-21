@@ -10,6 +10,8 @@ import AddExpenseModal from './AddExpenseModal'
 
 export default function Expenses(props) {
     const [showModal, setShowModal] = React.useState(false)
+
+    // For displaying the expense data in the cards
     const [expenses, setExpenses] = React.useState(props.expenses)
 
     // Tracks the current expense data being edited (if any)
@@ -42,7 +44,7 @@ export default function Expenses(props) {
                     expenses={expenses}
                     setExpenses={setExpenses}
                     saveExpensesToApp={props.saveExpensesToApp}
-                    data={currentEditData}
+                    data={currentEditData}  // in case the modal is opened for editing instead of adding
                 />
             }
             cardContainer={

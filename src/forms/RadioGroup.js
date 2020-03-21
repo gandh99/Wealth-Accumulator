@@ -13,6 +13,7 @@ export default function RadioGroup(props) {
                     <input
                         type="radio"
                         name={props.id}
+                        checked={(!props.selected && option.value === props.value) ? 'checked' : null}
                         onClick={() => props.onRadioSelect(option.value)}
                     />
                     <span className='radio-button-text'>{option.name}</span>

@@ -82,6 +82,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter expense amount"
+                            value={props.data.expenseAmount}
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
@@ -89,6 +90,8 @@ export default function AddExpenseModal(props) {
                         id={'expenseFrequency'}
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
+                        value={props.data.expenseFrequency}
+                        selected={expenseFrequency}
                         onRadioSelect={frequency => setExpenseFrequency(frequency)}
                     />
                     <Form.Group controlId="expensePercentageChange">
@@ -96,6 +99,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter percentage change"
+                            value={props.data.expensePercentageChange}
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>
