@@ -4,6 +4,7 @@ import '../components/modal.css'
 import '../forms/form.css'
 import RadioGroup from '../forms/RadioGroup'
 import { isValidName, isValidPositiveNumber, isValidPercentage, isValidOption } from '../forms/input-validation'
+import uuid from 'react-uuid'
 
 export default function AddExpenseModal(props) {
     // Expenses state
@@ -25,6 +26,7 @@ export default function AddExpenseModal(props) {
 
         // Update expenses in parents
         const expensesData = {
+            id: uuid(),
             expenseName,
             expenseAmount,
             expenseFrequency,
@@ -36,7 +38,7 @@ export default function AddExpenseModal(props) {
         props.saveExpensesToApp([
             ...props.expenses, expensesData
         ])
-
+        
         // Clear modal state
         clearModalState()
 

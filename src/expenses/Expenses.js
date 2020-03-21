@@ -44,6 +44,7 @@ export default function Expenses(props) {
                         expenses.map(expense => (
                             <ExpenseCard
                                 expense={expense}
+                                showModal={() => setShowModal(true)}
                             />
                         ))
                     }
