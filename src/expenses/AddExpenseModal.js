@@ -5,6 +5,7 @@ import '../forms/form.css'
 import RadioGroup from '../forms/RadioGroup'
 import { isValidName, isValidPositiveNumber, isValidPercentage, isValidOption } from '../forms/input-validation'
 import uuid from 'react-uuid'
+import ModalHeader from '../modal/ModalHeader'
 
 export default function AddExpenseModal(props) {
     // Expenses state
@@ -95,11 +96,14 @@ export default function AddExpenseModal(props) {
             centered
             className='modal'
         >
-            <Modal.Header className='modal-header'>
+            {/* <Modal.Header className='modal-header'>
                 <Modal.Title id="contained-modal-title-vcenter" className='modal-title'>
                     {(props.isEditing) ? 'Edit' : 'Add'} Expense
                 </Modal.Title>
-            </Modal.Header>
+            </Modal.Header> */}
+            <ModalHeader 
+                title={`${(props.isEditing) ? 'Edit' : 'Add'} Expense`}
+            />
             <Form onSubmit={submitExpenses}>
                 <Modal.Body className='modal-body'>
                     <Form.Group controlId="expenseName">
