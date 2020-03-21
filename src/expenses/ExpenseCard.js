@@ -18,7 +18,7 @@ export default function ExpenseCard(props) {
     return (
         <div className='card'>
             <div className='card-utility-bar'>
-                <img src={Trash} className='delete-card' />
+                <img src={Trash} className='delete-card' onClick={() => props.deleteExpenseWithId(id)} />
                 <img src={Edit} className='edit-card' onClick={() => props.showModal(props.expense)} />
             </div>
             <div className='card-title'>{expenseName}</div>

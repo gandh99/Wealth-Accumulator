@@ -18,6 +18,13 @@ export default function Expenses(props) {
     const [isEditing, setIsEditing] = React.useState(false)
     const [currentEditData, setCurrentEditData] = React.useState({})
 
+    // Function to delete an expense
+    const deleteWithId = (targetId) => {
+        let filteredAllExpensesData = allExpenses.filter(expense => expense.id !== targetId)
+        setAllExpenses(filteredAllExpensesData)
+        props.saveToApp(filteredAllExpensesData)
+    }
+
     return (
         <Container
             utilityBar={
@@ -63,6 +70,7 @@ export default function Expenses(props) {
                                     setCurrentEditData(data)
                                     setShowModal(true)
                                 }}
+                                deleteExpenseWithId={deleteWithId}
                             />
                         ))
                     }
