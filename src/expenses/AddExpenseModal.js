@@ -6,6 +6,7 @@ import RadioGroup from '../forms/RadioGroup'
 import { isValidName, isValidPositiveNumber, isValidPercentage, isValidOption } from '../forms/input-validation'
 import uuid from 'react-uuid'
 import ModalHeader from '../modal/ModalHeader'
+import ModalTextInput from '../modal/ModalTextInput'
 
 export default function AddExpenseModal(props) {
     // Expenses state
@@ -13,7 +14,7 @@ export default function AddExpenseModal(props) {
     const [expenseAmount, setExpenseAmount] = React.useState(props)
     const [expenseFrequency, setExpenseFrequency] = React.useState(props)
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(props)
-  
+
     // Reference: https://learnwithparam.com/blog/how-to-pass-props-to-state-properly-in-react-hooks/
     React.useEffect(() => {
         setExpenseName(props.editData.expenseName)
@@ -24,7 +25,7 @@ export default function AddExpenseModal(props) {
 
     const submitExpenses = (e) => {
         e.preventDefault()
-        
+
         // Check for errors
         if (!allInputsValid()) {
             return
@@ -96,34 +97,23 @@ export default function AddExpenseModal(props) {
             centered
             className='modal'
         >
-            {/* <Modal.Header className='modal-header'>
-                <Modal.Title id="contained-modal-title-vcenter" className='modal-title'>
-                    {(props.isEditing) ? 'Edit' : 'Add'} Expense
-                </Modal.Title>
-            </Modal.Header> */}
-            <ModalHeader 
+            <ModalHeader
                 title={`${(props.isEditing) ? 'Edit' : 'Add'} Expense`}
             />
             <Form onSubmit={submitExpenses}>
                 <Modal.Body className='modal-body'>
-                    <Form.Group controlId="expenseName">
-                        <Form.Control
-                            className='form-text-input'
-                            type="text"
-                            placeholder="Enter name of expense"
-                            defaultValue={props.editData.expenseName}
-                            onChange={(e) => setExpenseName(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="expenseAmount">
-                        <Form.Control
-                            className='form-text-input'
-                            type="text"
-                            placeholder="Enter expense amount"
-                            defaultValue={props.editData.expenseAmount}
-                            onChange={(e) => setExpenseAmount(e.target.value)}
-                        />
-                    </Form.Group>
+                    <ModalTextInput
+                        controlId={'expenseName'}
+                        placeholder={'Enter name of expense'}
+                        defaultValue={props.editData.expenseName}
+                        onChange={e => setExpenseName(e.target.value)}
+                    />
+                    <ModalTextInput
+                        controlId={'expenseAmount'}
+                        placeholder={'Enter expense amount'}
+                        defaultValue={props.editData.expenseAmount}
+                        onChange={e => setExpenseAmount(e.target.value)}
+                    />
                     <RadioGroup
                         id={'expenseFrequency'}
                         optionNames={['Monthly', 'Yearly']}
@@ -132,15 +122,12 @@ export default function AddExpenseModal(props) {
                         hasBeenClicked={(expenseFrequency) ? true : false}
                         onRadioSelect={frequency => setExpenseFrequency(frequency)}
                     />
-                    <Form.Group controlId="expensePercentageChange">
-                        <Form.Control
-                            className='form-text-input'
-                            type="text"
-                            placeholder="Enter percentage change"
-                            defaultValue={props.editData.expensePercentageChange}
-                            onChange={(e) => setExpensePercentageChange(e.target.value)}
-                        />
-                    </Form.Group>
+                    <ModalTextInput
+                        controlId={'expensePercentageChange'}
+                        placeholder={'Enter percentage change'}
+                        defaultValue={props.editData.expensePercentageChange}
+                        onChange={e => setExpensePercentageChange(e.target.value)}
+                    />
                 </Modal.Body>
                 <Modal.Footer className='modal-footer'>
                     <Button type='submit' className='modal-button'>

@@ -58,7 +58,7 @@ class App extends Component {
             <Route path="/expenses">
               <Expenses
                 allExpenses={this.state.allExpenses}
-                saveToApp={(expenses) => this.setState({ expenses })}
+                saveToApp={(allExpenses) => this.setState({ allExpenses })}
               />
             </Route>
           </Switch>
