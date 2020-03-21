@@ -5,7 +5,7 @@ import { transformArraysToObject } from '../utils/utility'
 export default function RadioGroup(props) {
     // options = [{name: optionName1, value: optionValue1}, {name: optionName2, value: optionValue2}, ...]
     const options = transformArraysToObject(props.optionNames, props.optionValues)
-    
+
     return (
         <div className='radio-group-container'>
             {options.map(option => (
@@ -13,7 +13,11 @@ export default function RadioGroup(props) {
                     <input
                         type="radio"
                         name={props.id}
-                        defaultChecked={(!props.selected && option.value === props.value) ? 'checked' : null}
+                        defaultChecked={
+                            (!props.hasBeenClicked && option.value === props.defaultValue)
+                                ? 'checked'
+                                : null
+                        }
                         onClick={() => props.onRadioSelect(option.value)}
                     />
                     <span className='radio-button-text'>{option.name}</span>

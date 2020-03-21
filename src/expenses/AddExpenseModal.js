@@ -124,8 +124,8 @@ export default function AddExpenseModal(props) {
                         id={'expenseFrequency'}
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
-                        value={props.editData.expenseFrequency}
-                        selected={expenseFrequency}
+                        defaultValue={props.editData.expenseFrequency}
+                        hasBeenClicked={(expenseFrequency) ? true : false}
                         onRadioSelect={frequency => setExpenseFrequency(frequency)}
                     />
                     <Form.Group controlId="expensePercentageChange">
