@@ -1,9 +1,12 @@
 import React from 'react'
 import './asset-card.css'
 import { numberWithCommas } from '../utils/utility'
+import Edit from '../images/edit.png'
+import Trash from '../images/trash.png'
 
 export default function AssetCard(props) {
     const {
+        id,
         assetName,
         assetAmount,
         assetContributionAmount,
@@ -17,6 +20,10 @@ export default function AssetCard(props) {
 
     return (
         <div className='card'>
+            <div className='card-utility-bar'>
+                <img src={Trash} className='delete-card' onClick={() => props.deleteAssetWithId(id)} />
+                <img src={Edit} className='edit-card' onClick={() => props.showModal(props.asset)} />
+            </div>
             <div className='card-title'>{assetName}</div>
             <div className='primary-information-container'>
                 <div className='currency'>$</div>
