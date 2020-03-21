@@ -16,7 +16,7 @@ export function generateOverallWealthData(totalIncomeData, totalAssetData, total
             amount: wealthForCurrentYear
         })
     }
-    console.log(overallWealthData)
+    
     return overallWealthData
 }
 

@@ -17,33 +17,38 @@ export default function AddExpenseModal(props) {
         e.preventDefault()
 
         // Check for errors
-        if (!isValidName(expenseName)
-            || !isValidPositiveNumber(expenseAmount)
-            || !isValidPercentage(expensePercentageChange)
-            || !isValidOption(expenseFrequency)) {
+        if (!allInputsValid()) {
             return
         }
 
-        // Update expenses in parents
-        const expensesData = {
-            id: uuid(),
-            expenseName,
-            expenseAmount,
-            expenseFrequency,
-            expensePercentageChange,
-        }
-        props.setExpenses([
-            ...props.expenses, expensesData
-        ])
-        props.saveExpensesToApp([
-            ...props.expenses, expensesData
-        ])
-        
+        // Add expenses
+        addExpense()
+
         // Clear modal state
         clearModalState()
 
         // Close modal
         props.onHide()
+    }
+
+    const addExpense = () => {
+        props.setExpenses([
+            ...props.expenses,
+            {
+                id: uuid(),
+                expenseName,
+                expenseAmount,
+                expenseFrequency,
+                expensePercentageChange,
+            }
+        ])
+    }
+
+    const allInputsValid = () => {
+        return (isValidName(expenseName)
+            && isValidPositiveNumber(expenseAmount)
+            && isValidPercentage(expensePercentageChange)
+            && isValidOption(expenseFrequency))
     }
 
     const clearModalState = () => {

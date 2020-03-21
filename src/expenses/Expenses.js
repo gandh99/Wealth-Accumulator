@@ -42,8 +42,10 @@ export default function Expenses(props) {
                         setShowModal(false)
                     }}
                     expenses={expenses}
-                    setExpenses={setExpenses}
-                    saveExpensesToApp={props.saveExpensesToApp}
+                    setExpenses={(expenseData) => {
+                        setExpenses(expenseData)
+                        props.saveToApp(expenseData)
+                    }}
                     data={currentEditData}  // in case the modal is opened for editing instead of adding
                 />
             }
