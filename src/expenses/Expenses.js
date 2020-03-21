@@ -15,6 +15,7 @@ export default function Expenses(props) {
     const [expenses, setExpenses] = React.useState(props.expenses)
 
     // Tracks the current expense data being edited (if any)
+    const [isEditing, setIsEditing] = React.useState(false)
     const [currentEditData, setCurrentEditData] = React.useState({})
 
     return (
@@ -38,6 +39,7 @@ export default function Expenses(props) {
                 <AddExpenseModal
                     show={showModal}
                     onHide={() => {
+                        setIsEditing(false)
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
@@ -46,6 +48,7 @@ export default function Expenses(props) {
                         setExpenses(expenseData)
                         props.saveToApp(expenseData)
                     }}
+                    isEditing={isEditing}
                     data={currentEditData}  // in case the modal is opened for editing instead of adding
                 />
             }
@@ -56,6 +59,7 @@ export default function Expenses(props) {
                             <ExpenseCard
                                 expense={expense}
                                 showModal={(data) => {
+                                    setIsEditing(true)
                                     setCurrentEditData(data)
                                     setShowModal(true)
                                 }}

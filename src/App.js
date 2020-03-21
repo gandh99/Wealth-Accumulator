@@ -17,11 +17,8 @@ class App extends Component {
     showSidebar: false,
     incomes: [],
     assets: [],
-    // expenses: [],
-
-    // Dummy data for testing
-    expenses: [{expenseName:'l', expenseAmount: 1, expenseFrequency: 'month', expensePercentageChange: 1}],
-  }
+    expenses: [],
+}
 
   toggleSidebar = (showSidebar) => {
     this.setState({ showSidebar })
@@ -49,13 +46,13 @@ class App extends Component {
             <Route path="/incomes">
               <Income
                 incomes={this.state.incomes}
-                saveIncomesToApp={(incomes) => this.setState({ incomes })}
+                saveIncomesToApp={(incomes) => this.setState({ incomes })} //TODO
               />
             </Route>
             <Route path='/assets'>
               <Assets 
                 assets={this.state.assets}
-                saveAssetsToApp={(assets) => this.setState({ assets })}
+                saveAssetsToApp={(assets) => this.setState({ assets })} //TODO
               />
             </Route>
             <Route path="/expenses">

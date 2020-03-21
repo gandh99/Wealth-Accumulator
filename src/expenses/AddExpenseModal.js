@@ -13,6 +13,10 @@ export default function AddExpenseModal(props) {
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
 
+    // React.useEffect(() => {
+    //     setExpenseName(props.data.expenseName)
+    // })
+
     const submitExpenses = (e) => {
         e.preventDefault()
 
@@ -22,7 +26,11 @@ export default function AddExpenseModal(props) {
         }
 
         // Add expenses
-        addExpense()
+        if (props.isEditing) {
+            modifyExpense()
+        } else {
+            addExpense()
+        }
 
         // Clear modal state
         clearModalState()
@@ -42,6 +50,23 @@ export default function AddExpenseModal(props) {
                 expensePercentageChange,
             }
         ])
+    }
+
+    const modifyExpense = () => {
+        let expenseData = props.expenses
+        for (let i = 0; i < expenseData.length; i++) {
+            if (expenseData[i].id === props.data.id) {
+                expenseData[i] = {
+                    id: uuid(),
+                    expenseName,
+                    expenseAmount,
+                    expenseFrequency,
+                    expensePercentageChange,
+                }
+                break
+            }
+        }
+        props.setExpenses(expenseData)
     }
 
     const allInputsValid = () => {
@@ -78,7 +103,11 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter name of expense"
-                            value={props.data.expenseName}
+                            // value={expenseName}
+                            // onChange={(e) => {
+                            //     console.log(e.target.value)
+                            //     setExpenseName(e.target.value)
+                            // }}
                             onChange={(e) => setExpenseName(e.target.value)}
                         />
                     </Form.Group>
@@ -87,7 +116,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter expense amount"
-                            value={props.data.expenseAmount}
+                            // value={props.data.expenseAmount}
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
@@ -104,7 +133,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter percentage change"
-                            value={props.data.expensePercentageChange}
+                            // value={props.data.expensePercentageChange}
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>
