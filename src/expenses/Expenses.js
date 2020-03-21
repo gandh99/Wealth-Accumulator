@@ -12,7 +12,7 @@ export default function Expenses(props) {
     const [showModal, setShowModal] = React.useState(false)
 
     // For displaying the expense data in the cards
-    const [expenses, setExpenses] = React.useState(props.expenses)
+    const [allExpenses, setAllExpenses] = React.useState(props.allExpenses)
 
     // Tracks the current expense data being edited (if any)
     const [isEditing, setIsEditing] = React.useState(false)
@@ -43,19 +43,19 @@ export default function Expenses(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    expenses={expenses}
-                    setExpenses={(expenseData) => {
-                        setExpenses(expenseData)
-                        props.saveToApp(expenseData)
+                    allExpenses={allExpenses}
+                    setAllExpenses={(allExpenseData) => {
+                        setAllExpenses(allExpenseData)
+                        props.saveToApp(allExpenseData)
                     }}
                     isEditing={isEditing}
-                    data={currentEditData}  // in case the modal is opened for editing instead of adding
+                    editData={currentEditData}  // in case the modal is opened for editing instead of adding
                 />
             }
             cardContainer={
                 <CardContainer
                     cards={
-                        expenses.map(expense => (
+                        allExpenses.map(expense => (
                             <ExpenseCard
                                 expense={expense}
                                 showModal={(data) => {

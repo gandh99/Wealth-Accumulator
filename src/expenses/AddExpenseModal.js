@@ -8,14 +8,22 @@ import uuid from 'react-uuid'
 
 export default function AddExpenseModal(props) {
     // Expenses state
-    const [expenseName, setExpenseName] = React.useState('')
-    const [expenseAmount, setExpenseAmount] = React.useState(0)
-    const [expenseFrequency, setExpenseFrequency] = React.useState('')
-    const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
+    const [expenseName, setExpenseName] = React.useState(props)
+    const [expenseAmount, setExpenseAmount] = React.useState(props)
+    const [expenseFrequency, setExpenseFrequency] = React.useState(props)
+    const [expensePercentageChange, setExpensePercentageChange] = React.useState(props)
+  
+    // Reference: https://learnwithparam.com/blog/how-to-pass-props-to-state-properly-in-react-hooks/
+    React.useEffect(() => {
+        setExpenseName(props.editData.expenseName)
+        setExpenseAmount(props.editData.expenseAmount)
+        setExpenseFrequency(props.editData.expenseFrequency)
+        setExpensePercentageChange(props.editData.expensePercentageChange)
+    }, [props]);
 
     const submitExpenses = (e) => {
         e.preventDefault()
-
+        
         // Check for errors
         if (!allInputsValid()) {
             return
@@ -36,8 +44,8 @@ export default function AddExpenseModal(props) {
     }
 
     const addExpense = () => {
-        props.setExpenses([
-            ...props.expenses,
+        props.setAllExpenses([
+            ...props.allExpenses,
             {
                 id: uuid(),
                 expenseName,
@@ -49,9 +57,9 @@ export default function AddExpenseModal(props) {
     }
 
     const modifyExpense = () => {
-        let expenseData = props.expenses
+        let expenseData = props.allExpenses
         for (let i = 0; i < expenseData.length; i++) {
-            if (expenseData[i].id === props.data.id) {
+            if (expenseData[i].id === props.editData.id) {
                 expenseData[i] = {
                     id: uuid(),
                     expenseName,
@@ -62,7 +70,7 @@ export default function AddExpenseModal(props) {
                 break
             }
         }
-        props.setExpenses(expenseData)
+        props.setAllExpenses(expenseData)
     }
 
     const allInputsValid = () => {
@@ -89,7 +97,7 @@ export default function AddExpenseModal(props) {
         >
             <Modal.Header className='modal-header'>
                 <Modal.Title id="contained-modal-title-vcenter" className='modal-title'>
-                    Add Expense
+                    {(props.isEditing) ? 'Edit' : 'Add'} Expense
                 </Modal.Title>
             </Modal.Header>
             <Form onSubmit={submitExpenses}>
@@ -99,7 +107,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter name of expense"
-                            defaultValue={props.data.expenseName}
+                            defaultValue={props.editData.expenseName}
                             onChange={(e) => setExpenseName(e.target.value)}
                         />
                     </Form.Group>
@@ -108,7 +116,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter expense amount"
-                            defaultValue={props.data.expenseAmount}
+                            defaultValue={props.editData.expenseAmount}
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
@@ -116,7 +124,7 @@ export default function AddExpenseModal(props) {
                         id={'expenseFrequency'}
                         optionNames={['Monthly', 'Yearly']}
                         optionValues={['month', 'year']}
-                        value={props.data.expenseFrequency}
+                        value={props.editData.expenseFrequency}
                         selected={expenseFrequency}
                         onRadioSelect={frequency => setExpenseFrequency(frequency)}
                     />
@@ -125,14 +133,14 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter percentage change"
-                            defaultValue={props.data.expensePercentageChange}
+                            defaultValue={props.editData.expensePercentageChange}
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer className='modal-footer'>
                     <Button type='submit' className='modal-button'>
-                        Add
+                        {(props.isEditing) ? 'Edit' : 'Add'}
                     </Button>
                 </Modal.Footer>
             </Form>

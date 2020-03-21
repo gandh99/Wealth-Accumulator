@@ -17,7 +17,7 @@ class App extends Component {
     showSidebar: false,
     incomes: [],
     assets: [],
-    expenses: [],
+    allExpenses: [],
 }
 
   toggleSidebar = (showSidebar) => {
@@ -40,7 +40,7 @@ class App extends Component {
               <Overview
                 incomes={this.state.incomes}
                 assets={this.state.assets}
-                expenses={this.state.expenses}
+                expenses={this.state.allExpenses}
               />
             </Route>
             <Route path="/incomes">
@@ -57,7 +57,7 @@ class App extends Component {
             </Route>
             <Route path="/expenses">
               <Expenses
-                expenses={this.state.expenses}
+                allExpenses={this.state.allExpenses}
                 saveToApp={(expenses) => this.setState({ expenses })}
               />
             </Route>
