@@ -21,7 +21,7 @@ export default function AddExpenseModal(props) {
         setExpenseAmount(props.editData.expenseAmount)
         setExpenseFrequency(props.editData.expenseFrequency)
         setExpensePercentageChange(props.editData.expensePercentageChange)
-    }, [props]);
+    }, [props])
 
     const submitExpenses = (e) => {
         e.preventDefault()

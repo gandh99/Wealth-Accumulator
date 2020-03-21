@@ -50,7 +50,6 @@ export default function Income(props) {
                         setShowModal(false)
                     }}
                     allIncomes={allIncomes}
-                    setIncomes={setAllIncomes}
                     setAllIncomes={(allIncomesData) => {
                         setAllIncomes(allIncomesData)
                         props.saveToApp(allIncomesData)
