@@ -13,10 +13,6 @@ export default function AddExpenseModal(props) {
     const [expenseFrequency, setExpenseFrequency] = React.useState('')
     const [expensePercentageChange, setExpensePercentageChange] = React.useState(0)
 
-    // React.useEffect(() => {
-    //     setExpenseName(props.data.expenseName)
-    // })
-
     const submitExpenses = (e) => {
         e.preventDefault()
 
@@ -25,7 +21,7 @@ export default function AddExpenseModal(props) {
             return
         }
 
-        // Add expenses
+        // Add/modify expenses
         if (props.isEditing) {
             modifyExpense()
         } else {
@@ -103,11 +99,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter name of expense"
-                            // value={expenseName}
-                            // onChange={(e) => {
-                            //     console.log(e.target.value)
-                            //     setExpenseName(e.target.value)
-                            // }}
+                            defaultValue={props.data.expenseName}
                             onChange={(e) => setExpenseName(e.target.value)}
                         />
                     </Form.Group>
@@ -116,7 +108,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter expense amount"
-                            // value={props.data.expenseAmount}
+                            defaultValue={props.data.expenseAmount}
                             onChange={(e) => setExpenseAmount(e.target.value)}
                         />
                     </Form.Group>
@@ -133,7 +125,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter percentage change"
-                            // value={props.data.expensePercentageChange}
+                            defaultValue={props.data.expensePercentageChange}
                             onChange={(e) => setExpensePercentageChange(e.target.value)}
                         />
                     </Form.Group>
