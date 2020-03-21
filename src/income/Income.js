@@ -9,7 +9,20 @@ import IncomeCard from './IncomeCard'
 
 export default function Income(props) {
     const [showModal, setShowModal] = React.useState(false)
-    const [incomes, setIncomes] = React.useState(props.incomes)
+
+    // For displaying the income data in the cards
+    const [allIncomes, setAllIncomes] = React.useState(props.allIncomes)
+
+    // Tracks the current income data being edited (if any)
+    const [isEditing, setIsEditing] = React.useState(false)
+    const [currentEditData, setCurrentEditData] = React.useState({})
+
+    // Function to delete an income
+    const deleteWithId = (targetId) => {
+        let filteredAllIncomesData = allIncomes.filter(income => income.id !== targetId)
+        setAllIncomes(filteredAllIncomesData)
+        props.saveToApp(filteredAllIncomesData)
+    }
 
     return (
         <Container
@@ -31,18 +44,33 @@ export default function Income(props) {
             modal={
                 <AddIncomeModal
                     show={showModal}
-                    onHide={() => setShowModal(false)}
-                    incomes={incomes}
-                    setIncomes={setIncomes}
-                    saveIncomesToApp={props.saveIncomesToApp}
+                    onHide={() => {
+                        setIsEditing(false)
+                        setCurrentEditData({})
+                        setShowModal(false)
+                    }}
+                    allIncomes={allIncomes}
+                    setIncomes={setAllIncomes}
+                    setAllIncomes={(allIncomesData) => {
+                        setAllIncomes(allIncomesData)
+                        props.saveToApp(allIncomesData)
+                    }}
+                    isEditing={isEditing}
+                    editData={currentEditData}  // in case the modal is opened for editing instead of adding
                 />
             }
             cardContainer={
                 <CardContainer
                     cards={
-                        incomes.map(income => (
+                        allIncomes.map(income => (
                             <IncomeCard
                                 income={income}
+                                showModal={(data) => {
+                                    setIsEditing(true)
+                                    setCurrentEditData(data)
+                                    setShowModal(true)
+                                }}
+                                deleteIncomeWithId={deleteWithId}
                             />
                         ))
                     }
