@@ -73,6 +73,7 @@ export default function AddExpenseModal(props) {
                             className='form-text-input'
                             type="text"
                             placeholder="Enter name of expense"
+                            value={props.data.expenseName}
                             onChange={(e) => setExpenseName(e.target.value)}
                         />
                     </Form.Group>

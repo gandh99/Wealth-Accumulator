@@ -6,6 +6,7 @@ import Trash from '../images/trash.png'
 
 export default function ExpenseCard(props) {
     const {
+        id,
         expenseName,
         expenseAmount,
         expenseFrequency,
@@ -18,7 +19,7 @@ export default function ExpenseCard(props) {
         <div className='card'>
             <div className='card-utility-bar'>
                 <img src={Trash} className='delete-card' />
-                <img src={Edit} className='edit-card' onClick={props.showModal} />
+                <img src={Edit} className='edit-card' onClick={() => props.showModal(props.expense)} />
             </div>
             <div className='card-title'>{expenseName}</div>
             <div className='primary-information-container'>
