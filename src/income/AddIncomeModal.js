@@ -97,32 +97,11 @@ export default function AddIncomeModal(props) {
             centered
             className='modal'
         >
-            {/* <Modal.Header className='modal-header'>
-                <Modal.Title id="contained-modal-title-vcenter" className='modal-title'>
-                    Add Income
-                </Modal.Title>
-            </Modal.Header> */}
             <ModalHeader
                 title={`${(props.isEditing) ? 'Edit' : 'Add'} Income`}
             />
             <Form onSubmit={submitIncomes}>
                 <Modal.Body className='modal-body'>
-                    {/* <Form.Group controlId="incomeName">
-                        <Form.Control
-                            className='form-text-input'
-                            type="text"
-                            placeholder="Enter name of income"
-                            onChange={(e) => setIncomeName(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="incomeAmount">
-                        <Form.Control
-                            className='form-text-input'
-                            type="text"
-                            placeholder="Enter income amount"
-                            onChange={(e) => setIncomeAmount(e.target.value)}
-                        />
-                    </Form.Group> */}
                     <ModalTextInput
                         controlId={'incomeName'}
                         placeholder={'Enter name of income'}
@@ -143,14 +122,6 @@ export default function AddIncomeModal(props) {
                         hasBeenClicked={(incomeFrequency) ? true : false}
                         onRadioSelect={frequency => setIncomeFrequency(frequency)}
                     />
-                    {/* <Form.Group controlId="incomePercentageChange">
-                        <Form.Control
-                            className='form-text-input'
-                            type="text"
-                            placeholder="Enter percentage change"
-                            onChange={(e) => setIncomePercentageChange(e.target.value)}
-                        />
-                    </Form.Group> */}
                     <ModalTextInput
                         controlId={'incomePercentageChange'}
                         placeholder={'Enter percentage change'}

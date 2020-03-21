@@ -1,9 +1,12 @@
 import React from 'react'
 import '../components/card.css'
 import { numberWithCommas } from '../utils/utility'
+import Edit from '../images/edit.png'
+import Trash from '../images/trash.png'
 
 export default function IncomeCard(props) {
     const {
+        id,
         incomeName,
         incomeAmount,
         incomeFrequency,
@@ -14,6 +17,10 @@ export default function IncomeCard(props) {
 
     return (
         <div className='card'>
+            <div className='card-utility-bar'>
+                <img src={Trash} className='delete-card' onClick={() => props.deleteIncomeWithId(id)} />
+                <img src={Edit} className='edit-card' onClick={() => props.showModal(props.income)} />
+            </div>
             <div className='card-title'>{incomeName}</div>
             <div className='primary-information-container'>
                 <div className='currency'>$</div>

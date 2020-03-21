@@ -38,8 +38,8 @@ class App extends Component {
           <Switch>
             <Route path="/overview">
               <Overview
-                incomes={this.state.incomes}
-                assets={this.state.assets}
+                incomes={this.state.allIncomes}
+                assets={this.state.assets}  //TODO
                 expenses={this.state.allExpenses}
               />
             </Route>
