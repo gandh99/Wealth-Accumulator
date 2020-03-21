@@ -7,11 +7,32 @@
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
     padding-bottom: 1rem;
+    position: relative;
 }
 
 .card * {
     margin: 1rem 2rem 0.1rem;
     text-align: left;
+}
+
+.card:hover > .card-utility-bar {
+    display: block;
+}
+
+.card-utility-bar {
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    display: none;
+}
+
+.card-utility-bar * {
+    float: right;
+    width: 1.5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    background-color: var(--primary-background-color);
 }
 
 .card-title {
@@ -46,4 +67,10 @@
 
 .negative {
     color: var(--decrease-text-color);
+}
+
+@media only screen and (max-width: 600px) {
+    .card-utility-bar {
+        display: block;
+    }
 }

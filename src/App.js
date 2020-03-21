@@ -17,7 +17,10 @@ class App extends Component {
     showSidebar: false,
     incomes: [],
     assets: [],
-    expenses: [],
+    // expenses: [],
+
+    // Dummy data for testing
+    expenses: [{expenseName:'l', expenseAmount: 1, expenseFrequency: 'month', expensePercentageChange: 1}],
   }
 
   toggleSidebar = (showSidebar) => {

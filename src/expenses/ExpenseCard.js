@@ -1,6 +1,8 @@
 import React from 'react'
 import '../components/card.css'
 import { numberWithCommas } from '../utils/utility'
+import Edit from '../images/edit.png'
+import Trash from '../images/trash.png'
 
 export default function ExpenseCard(props) {
     const {
@@ -14,6 +16,10 @@ export default function ExpenseCard(props) {
 
     return (
         <div className='card'>
+            <div className='card-utility-bar'>
+                <img src={Trash} className='delete-card' />
+                <img src={Edit} className='edit-card' />
+            </div>
             <div className='card-title'>{expenseName}</div>
             <div className='primary-information-container'>
                 <div className='currency'>$</div>
