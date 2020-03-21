@@ -9,7 +9,20 @@ import CardContainer from '../components/CardContainer'
 
 export default function Assets(props) {
     const [showModal, setShowModal] = React.useState(false)
-    const [assets, setAssets] = React.useState(props.assets)
+
+    // For displaying the expense data in the cards
+    const [allAssets, setAllAssets] = React.useState(props.allAssets)
+
+    // Tracks the current expense data being edited (if any)
+    const [isEditing, setIsEditing] = React.useState(false)
+    const [currentEditData, setCurrentEditData] = React.useState({})
+
+    // Function to delete an asset
+    const deleteWithId = (targetId) => {
+        let filteredAllAssetsData = allAssets.filter(asset => asset.id !== targetId)
+        setAllAssets(filteredAllAssetsData)
+        props.saveToApp(filteredAllAssetsData)
+    }
 
     return (
         <Container
@@ -31,18 +44,32 @@ export default function Assets(props) {
             modal={
                 <AddAssetModal
                     show={showModal}
-                    onHide={() => setShowModal(false)}
-                    assets={assets}
-                    setAssets={setAssets}
-                    saveAssetsToApp={props.saveAssetsToApp}
+                    onHide={() => {
+                        setIsEditing(false)
+                        setCurrentEditData({})
+                        setShowModal(false)
+                    }}
+                    allAssets={allAssets}
+                    setAllAssets={(allAssetData) => {
+                        setAllAssets(allAssetData)
+                        props.saveToApp(allAssetData)
+                    }}
+                    isEditing={isEditing}
+                    editData={currentEditData}  // in case the modal is opened for editing instead of adding
                 />
             }
             cardContainer={
                 <CardContainer
                     cards={
-                        assets.map(asset => (
+                        allAssets.map(asset => (
                             <AssetCard
                                 asset={asset}
+                                showModal={(data) => {
+                                    setIsEditing(true)
+                                    setCurrentEditData(data)
+                                    setShowModal(true)
+                                }}
+                                deleteAssetWithId={deleteWithId}
                             />
                         ))
                     }

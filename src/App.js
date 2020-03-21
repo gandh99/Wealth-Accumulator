@@ -16,7 +16,7 @@ class App extends Component {
   state = {
     showSidebar: false,
     allIncomes: [],
-    assets: [],
+    allAssets: [],
     allExpenses: [],
 }
 
@@ -39,7 +39,7 @@ class App extends Component {
             <Route path="/overview">
               <Overview
                 incomes={this.state.allIncomes}
-                assets={this.state.assets}  //TODO
+                assets={this.state.allAssets}  
                 expenses={this.state.allExpenses}
               />
             </Route>
@@ -51,8 +51,8 @@ class App extends Component {
             </Route>
             <Route path='/assets'>
               <Assets 
-                assets={this.state.assets}
-                saveAssetsToApp={(assets) => this.setState({ assets })} //TODO
+                allAssets={this.state.allAssets}
+                saveToApp={(allAssets) => this.setState({ allAssets })} 
               />
             </Route>
             <Route path="/expenses">
