@@ -4,7 +4,7 @@ export function isValidName(name) {
 }
 
 export function isValidPositiveNumber(value) {
-    return Number(value) && value >= 0.0
+    return (value == 0 || Number(value)) && value >= 0
 }
 
 export function isValidPercentage(value) {

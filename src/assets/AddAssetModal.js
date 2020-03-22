@@ -169,7 +169,7 @@ export default function AddAssetModal(props) {
                 </Modal.Body>
                 <Modal.Footer className='modal-footer'>
                     <Button type='submit' className='modal-button'>
-                        Add
+                        {(props.isEditing) ? 'Edit' : 'Add'}
                     </Button>
                 </Modal.Footer>
             </Form>
