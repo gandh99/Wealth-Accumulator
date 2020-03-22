@@ -44,3 +44,12 @@
     width: 100.5%;
     filter: blur(1px);
 }
+
+.banner-logo {
+    position: absolute;
+    border: none;
+    top: 40px;
+    left: 50px;
+    color: var(--primary-text-color);
+    font-weight: bold;
+}
