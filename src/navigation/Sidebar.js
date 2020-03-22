@@ -20,8 +20,7 @@ export default class Sidebar extends Component {
                 />
                 <div
                     className='sidebar-container'
-                    style={sidebarContainerStyle}
-                    onClick={this.props.toggleSidebar.bind(this, false)}>
+                    style={sidebarContainerStyle}>
                     <div className='sidebar-header' style={menuStyle}>
                         <div
                             className='sidebar-logo'>
@@ -29,16 +28,16 @@ export default class Sidebar extends Component {
                     </div>
                     </div>
                     <div className='sidebar-menu' style={menuStyle}>
-                        <Link to='/overview'>
+                        <Link to='/overview' onClick={this.props.toggleSidebar.bind(this, false)}>
                             <div className='sidebar-option'>Overview</div>
                         </Link>
-                        <Link to='/incomes'>
+                        <Link to='/incomes' onClick={this.props.toggleSidebar.bind(this, false)}>
                             <div className='sidebar-option'>Income</div>
                         </Link>
-                        <Link to='/assets'>
+                        <Link to='/assets' onClick={this.props.toggleSidebar.bind(this, false)}>
                             <div className='sidebar-option'>Assets</div>
                         </Link>
-                        <Link to='/expenses'>
+                        <Link to='/expenses' onClick={this.props.toggleSidebar.bind(this, false)}>
                             <div className='sidebar-option'>Expenses</div>
                         </Link>
                     </div>
