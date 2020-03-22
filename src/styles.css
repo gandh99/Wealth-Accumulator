@@ -3,6 +3,10 @@
     --primary-background-color: #2f2b3f;
     --primary-background-color-dark: #221f2e;
 
+    /* Banner */
+    --primary-banner-color: #6b45f3;
+    --secondary-banner-color: #e577ce;
+
     /* Text */
     --primary-text-color: #fff;
     --secondary-text-color: #524e62;    

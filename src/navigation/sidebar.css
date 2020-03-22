@@ -1,5 +1,4 @@
 @import url('../styles.css');
-
 .sidebar-container {
     position: fixed;
     top: 0;
@@ -13,11 +12,7 @@
 }
 
 .sidebar-header {
-    background-color: var(--primary-color-dark);
-    padding: 1rem 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: start;
+    position: relative;
 }
 
 .sidebar-menu {
@@ -32,4 +27,20 @@
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+}
+
+.banner-block {
+    background: rgb(63,81,181);
+    background: linear-gradient(25deg, rgba(63,81,181,1) 15%, rgba(229,119,206,1) 78%); 
+    height: 170px;
+    width: 100%;
+}
+
+.banner-bottom-wave {
+    position: absolute;
+    border: none;
+    top: 130px;
+    left: 0;
+    width: 100.5%;
+    filter: blur(1px);
 }
