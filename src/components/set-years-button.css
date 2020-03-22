@@ -1,0 +1,15 @@
+@import url('../styles.css');
+@import url('./button.css');
+
+#set-years-button-text:before {
+    content: "";
+    display: block;
+    float: left;
+    background-image: url('../images/edit_white.png'); 
+    background-size: contain;
+    width: 1.0rem;
+    height: 15px;
+    margin-left: 0.3rem;
+    margin-right: 0rem;
+    margin-top: 0.1rem;
+}

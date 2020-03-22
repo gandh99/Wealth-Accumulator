@@ -5,7 +5,8 @@ export default function Container(props) {
     return (
         <div className='container'>
             {props.utilityBar}
-            {props.modal}
+            {props.addEditItemModal}
+            {props.setYearsModal}
             {props.cardContainer}
             {props.chartContainer}
         </div>

@@ -8,9 +8,14 @@ import { generateExpenseData } from '../expenses/expense-calculator'
 import { generateAssetData } from '../assets/asset-calculator'
 import { generateIncomeData } from '../income/income-calculator'
 import OverallChartContainer from './OverallChartContainer'
+import SetYearsButton from '../components/SetYearsButton'
+import SetYearsModal from './SetYearsModal'
 
 export default function Overview(props) {
     const style = getComputedStyle(document.documentElement)
+
+    // Set years modal
+    const [showSetYearsModal, setShowSetYearsModal] = React.useState(false)
 
     // Use this to track overall wealth
     const [totalIncomeData, setTotalIncomeData] = React.useState([])
@@ -54,13 +59,21 @@ export default function Overview(props) {
                     buttonGroup={
                         <ButtonGroup
                             button={
-                                <AddButton
-                                    text={'Overview'}
-                                    setShowModal={null}
+                                <SetYearsButton
+                                    text={'Years'}
+                                    setShowSetYearsModal={setShowSetYearsModal}
                                 />
                             }
                         />
                     }
+                />
+            }
+            setYearsModal={
+                <SetYearsModal
+                    show={showSetYearsModal}
+                    onHide={() => {
+                        setShowSetYearsModal(false)
+                    }}
                 />
             }
             chartContainer={chartContainers}

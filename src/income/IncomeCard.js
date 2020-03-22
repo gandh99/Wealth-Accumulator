@@ -1,7 +1,7 @@
 import React from 'react'
 import '../components/card.css'
 import { numberWithCommas } from '../utils/utility'
-import Edit from '../images/edit.png'
+import Edit from '../images/edit_dark_grey.png'
 import Trash from '../images/trash.png'
 
 export default function IncomeCard(props) {

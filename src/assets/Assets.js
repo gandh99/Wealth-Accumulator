@@ -41,7 +41,7 @@ export default function Assets(props) {
                     }
                 />
             }
-            modal={
+            addEditItemModal={
                 <AddAssetModal
                     show={showModal}
                     onHide={() => {

@@ -42,7 +42,7 @@ export default function Expenses(props) {
                     }
                 />
             }
-            modal={
+            addEditItemModal={
                 <AddExpenseModal
                     show={showModal}
                     onHide={() => {

@@ -41,7 +41,7 @@ export default function Income(props) {
                     }
                 />
             }
-            modal={
+            addEditItemModal={
                 <AddIncomeModal
                     show={showModal}
                     onHide={() => {
