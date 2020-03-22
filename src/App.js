@@ -15,6 +15,7 @@ import Income from './income/Income';
 class App extends Component {
   state = {
     showSidebar: false,
+    years: 10,
     allIncomes: [],
     allAssets: [],
     allExpenses: [],
@@ -41,6 +42,8 @@ class App extends Component {
                 incomes={this.state.allIncomes}
                 assets={this.state.allAssets}  
                 expenses={this.state.allExpenses}
+                years={this.state.years}
+                saveToApp={years => this.setState({ years })}
               />
             </Route>
             <Route path="/incomes">

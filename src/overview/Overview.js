@@ -14,6 +14,9 @@ import SetYearsModal from './SetYearsModal'
 export default function Overview(props) {
     const style = getComputedStyle(document.documentElement)
 
+    // Track number of years selected
+    const [years, setYears] = React.useState(props.years)
+
     // Set years modal
     const [showSetYearsModal, setShowSetYearsModal] = React.useState(false)
 
@@ -60,7 +63,7 @@ export default function Overview(props) {
                         <ButtonGroup
                             button={
                                 <SetYearsButton
-                                    text={'Years'}
+                                    text={`${years} Years`}
                                     setShowSetYearsModal={setShowSetYearsModal}
                                 />
                             }
@@ -71,9 +74,10 @@ export default function Overview(props) {
             setYearsModal={
                 <SetYearsModal
                     show={showSetYearsModal}
-                    onHide={() => {
-                        setShowSetYearsModal(false)
-                    }}
+                    onHide={() => setShowSetYearsModal(false)}
+                    years={props.years}
+                    saveToOverview={setYears}
+                    saveToApp={props.saveToApp}
                 />
             }
             chartContainer={chartContainers}
