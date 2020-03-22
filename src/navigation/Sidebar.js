@@ -14,15 +14,17 @@ export default class Sidebar extends Component {
 
         return (
             <>
-                <ModalBackground 
+                <ModalBackground
                     show={this.props.showSidebar}
                     toggleVisibility={this.props.toggleSidebar}
                 />
-                <div className='sidebar-container' style={sidebarContainerStyle}>
+                <div
+                    className='sidebar-container'
+                    style={sidebarContainerStyle}
+                    onClick={this.props.toggleSidebar.bind(this, false)}>
                     <div className='sidebar-header' style={menuStyle}>
                         <div
-                            className='sidebar-logo'
-                            onClick={this.props.toggleSidebar.bind(this, false)}>
+                            className='sidebar-logo'>
                             Back
                     </div>
                     </div>
