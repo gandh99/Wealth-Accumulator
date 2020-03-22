@@ -48,19 +48,19 @@ class App extends Component {
             </Route>
             <Route path="/incomes">
               <Income
-                allIncomes={this.state.metadataForEachIncomeItem}
+                metadataForEachIncomeItem={this.state.metadataForEachIncomeItem}
                 saveToApp={(metadataForEachIncomeItem) => this.setState({ metadataForEachIncomeItem })} 
               />
             </Route>
             <Route path='/assets'>
               <Assets 
-                allAssets={this.state.metadataForEachAssetItem}
+                metadataForEachAssetItem={this.state.metadataForEachAssetItem}
                 saveToApp={(metadataForEachAssetItem) => this.setState({ metadataForEachAssetItem })} 
               />
             </Route>
             <Route path="/expenses">
               <Expenses
-                allExpenses={this.state.metadataForEachExpenseItem}
+                metadataForEachExpenseItem={this.state.metadataForEachExpenseItem}
                 saveToApp={(metadataForEachExpenseItem) => this.setState({ metadataForEachExpenseItem })}
               />
             </Route>

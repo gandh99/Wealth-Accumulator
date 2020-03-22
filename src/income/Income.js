@@ -10,18 +10,19 @@ import IncomeCard from './IncomeCard'
 export default function Income(props) {
     const [showModal, setShowModal] = React.useState(false)
 
-    // For displaying the income data in the cards
-    const [allIncomes, setAllIncomes] = React.useState(props.allIncomes)
+    // For displaying the income metadata in the cards
+    const [metadataForEachIncomeItem, setMetadataForEachIncomeItem] = React.useState(props.metadataForEachIncomeItem)
 
-    // Tracks the current income data being edited (if any)
+    // Tracks the current income metadata being edited (if any)
     const [isEditing, setIsEditing] = React.useState(false)
     const [currentEditData, setCurrentEditData] = React.useState({})
 
     // Function to delete an income
     const deleteWithId = (targetId) => {
-        let filteredAllIncomesData = allIncomes.filter(income => income.id !== targetId)
-        setAllIncomes(filteredAllIncomesData)
-        props.saveToApp(filteredAllIncomesData)
+        let filteredMetadataForEachIncomeItem
+            = metadataForEachIncomeItem.filter(metadata => metadata.id !== targetId)
+        setMetadataForEachIncomeItem(filteredMetadataForEachIncomeItem)
+        props.saveToApp(filteredMetadataForEachIncomeItem)
     }
 
     return (
@@ -49,9 +50,9 @@ export default function Income(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    allIncomes={allIncomes}
+                    allIncomes={metadataForEachIncomeItem}
                     setAllIncomes={(allIncomesData) => {
-                        setAllIncomes(allIncomesData)
+                        setMetadataForEachIncomeItem(allIncomesData)
                         props.saveToApp(allIncomesData)
                     }}
                     isEditing={isEditing}
@@ -61,7 +62,7 @@ export default function Income(props) {
             cardContainer={
                 <CardContainer
                     cards={
-                        allIncomes.map(income => (
+                        metadataForEachIncomeItem.map(income => (
                             <IncomeCard
                                 income={income}
                                 showModal={(data) => {

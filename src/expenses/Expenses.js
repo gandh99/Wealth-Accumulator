@@ -12,17 +12,17 @@ export default function Expenses(props) {
     const [showModal, setShowModal] = React.useState(false)
 
     // For displaying the expense data in the cards
-    const [allExpenses, setAllExpenses] = React.useState(props.allExpenses)
+    const [metadataForEachExpenseItem, setMetadataForEachExpenseItem] = React.useState(props.metadataForEachExpenseItem)
 
-    // Tracks the current expense data being edited (if any)
+    // Tracks the current expense metadata being edited (if any)
     const [isEditing, setIsEditing] = React.useState(false)
     const [currentEditData, setCurrentEditData] = React.useState({})
 
     // Function to delete an expense
     const deleteWithId = (targetId) => {
-        let filteredAllExpensesData = allExpenses.filter(expense => expense.id !== targetId)
-        setAllExpenses(filteredAllExpensesData)
-        props.saveToApp(filteredAllExpensesData)
+        let filteredMetadataForEachExpenseItem = metadataForEachExpenseItem.filter(metadata => metadata.id !== targetId)
+        setMetadataForEachExpenseItem(filteredMetadataForEachExpenseItem)
+        props.saveToApp(filteredMetadataForEachExpenseItem)
     }
 
     return (
@@ -50,9 +50,9 @@ export default function Expenses(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    allExpenses={allExpenses}
+                    allExpenses={metadataForEachExpenseItem}
                     setAllExpenses={(allExpenseData) => {
-                        setAllExpenses(allExpenseData)
+                        setMetadataForEachExpenseItem(allExpenseData)
                         props.saveToApp(allExpenseData)
                     }}
                     isEditing={isEditing}
@@ -62,7 +62,7 @@ export default function Expenses(props) {
             cardContainer={
                 <CardContainer
                     cards={
-                        allExpenses.map(expense => (
+                        metadataForEachExpenseItem.map(expense => (
                             <ExpenseCard
                                 expense={expense}
                                 showModal={(data) => {

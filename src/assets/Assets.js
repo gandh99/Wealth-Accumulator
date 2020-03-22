@@ -11,17 +11,17 @@ export default function Assets(props) {
     const [showModal, setShowModal] = React.useState(false)
 
     // For displaying the expense data in the cards
-    const [allAssets, setAllAssets] = React.useState(props.allAssets)
+    const [metadataForEachAssetItem, setMetadataForEachAssetItem] = React.useState(props.metadataForEachAssetItem)
 
-    // Tracks the current expense data being edited (if any)
+    // Tracks the current asset metadata being edited (if any)
     const [isEditing, setIsEditing] = React.useState(false)
     const [currentEditData, setCurrentEditData] = React.useState({})
 
     // Function to delete an asset
     const deleteWithId = (targetId) => {
-        let filteredAllAssetsData = allAssets.filter(asset => asset.id !== targetId)
-        setAllAssets(filteredAllAssetsData)
-        props.saveToApp(filteredAllAssetsData)
+        let filteredMetadataForEachAssetItem = metadataForEachAssetItem.filter(metadata => metadata.id !== targetId)
+        setMetadataForEachAssetItem(filteredMetadataForEachAssetItem)
+        props.saveToApp(filteredMetadataForEachAssetItem)
     }
 
     return (
@@ -49,9 +49,9 @@ export default function Assets(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    allAssets={allAssets}
+                    allAssets={metadataForEachAssetItem}
                     setAllAssets={(allAssetData) => {
-                        setAllAssets(allAssetData)
+                        setMetadataForEachAssetItem(allAssetData)
                         props.saveToApp(allAssetData)
                     }}
                     isEditing={isEditing}
@@ -61,7 +61,7 @@ export default function Assets(props) {
             cardContainer={
                 <CardContainer
                     cards={
-                        allAssets.map(asset => (
+                        metadataForEachAssetItem.map(asset => (
                             <AssetCard
                                 asset={asset}
                                 showModal={(data) => {
