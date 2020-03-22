@@ -16,7 +16,7 @@ class App extends Component {
   state = {
     showSidebar: false,
     years: 10,
-    allIncomes: [],
+    metadataForEachIncomeItem: [],
     allAssets: [],
     allExpenses: [],
 }
@@ -39,7 +39,7 @@ class App extends Component {
           <Switch>
             <Route path="/overview">
               <Overview
-                incomes={this.state.allIncomes}
+                metadataForEachIncomeItem={this.state.metadataForEachIncomeItem}
                 assets={this.state.allAssets}  
                 expenses={this.state.allExpenses}
                 years={this.state.years}
@@ -48,8 +48,8 @@ class App extends Component {
             </Route>
             <Route path="/incomes">
               <Income
-                allIncomes={this.state.allIncomes}
-                saveToApp={(allIncomes) => this.setState({ allIncomes })} 
+                allIncomes={this.state.metadataForEachIncomeItem}
+                saveToApp={(metadataForEachIncomeItem) => this.setState({ metadataForEachIncomeItem })} 
               />
             </Route>
             <Route path='/assets'>

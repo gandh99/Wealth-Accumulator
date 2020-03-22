@@ -15,49 +15,54 @@ export default function Overview(props) {
 
     // Track number of years selected
     const [years, setYears] = React.useState(props.years)
-
+    
     // Set years modal
     const [showSetYearsModal, setShowSetYearsModal] = React.useState(false)
 
     // Use this to track overall wealth
-    const [totalIncomeData, setTotalIncomeData] = React.useState([])
+    // const [totalIncomeData, setTotalIncomeData] = React.useState([])
     const [totalAssetData, setTotalAssetData] = React.useState([])
     const [totalExpenseData, setTotalExpenseData] = React.useState([])
+
+    let dataForEachIncomeItem = []  // array of objects
+    let dataForTotalIncome = [] 
+    generateIncomeData(props.metadataForEachIncomeItem, props.years, dataForEachIncomeItem, dataForTotalIncome)
 
     const chartContainers = [
         <OverallChartContainer
             title={'Overall Wealth'}
-            data={{ totalIncomeData, totalAssetData, totalExpenseData }}
+            data={{ totalIncomeData: dataForTotalIncome, totalAssetData, totalExpenseData }}
             chartColor={style.getPropertyValue('--primary-component-color')}
             years={props.years}
         />,
         <ChartContainer
             title={'Incomes'}
-            items={props.incomes}
+            dataForEachItem={dataForEachIncomeItem}
+            dataForItemsTotal={dataForTotalIncome}
             chartColor={style.getPropertyValue('--increase-text-color')}
-            generateData={
-                (item, totalItemsAmountData) => generateIncomeData(item, totalItemsAmountData, props.years)
-            }
-            saveTotalAmountData={setTotalIncomeData}
+            // generateData={
+            //     (item, totalItemsAmountData) => generateIncomeData(item, totalItemsAmountData, props.years)
+            // }
+            // saveTotalAmountData={setTotalIncomeData}
         />,
-        <ChartContainer
-            title={'Assets'}
-            items={props.assets}
-            chartColor={style.getPropertyValue('--secondary-component-color')}
-            generateData={
-                (item, totalItemsAmountData) => generateAssetData(item, totalItemsAmountData, props.years)
-            }
-            saveTotalAmountData={setTotalAssetData}
-        />,
-        <ChartContainer
-            title={'Expenses'}
-            items={props.expenses}
-            chartColor={style.getPropertyValue('--tertiary-component-color')}
-            generateData={
-                (item, totalItemsAmountData) => generateExpenseData(item, totalItemsAmountData, props.years)
-            }
-            saveTotalAmountData={setTotalExpenseData}
-        />,
+        // <ChartContainer
+        //     title={'Assets'}
+        //     items={props.assets}
+        //     chartColor={style.getPropertyValue('--secondary-component-color')}
+        //     generateData={
+        //         (item, totalItemsAmountData) => generateAssetData(item, totalItemsAmountData, props.years)
+        //     }
+        //     saveTotalAmountData={setTotalAssetData}
+        // />,
+        // <ChartContainer
+        //     title={'Expenses'}
+        //     items={props.expenses}
+        //     chartColor={style.getPropertyValue('--tertiary-component-color')}
+        //     generateData={
+        //         (item, totalItemsAmountData) => generateExpenseData(item, totalItemsAmountData, props.years)
+        //     }
+        //     saveTotalAmountData={setTotalExpenseData}
+        // />,
     ]
 
     return (

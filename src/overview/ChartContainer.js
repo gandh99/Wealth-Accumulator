@@ -4,35 +4,37 @@ import './chart-container.css'
 
 export default function ChartContainer(props) {
     let lineChartsForIndividualItems = []
-    let totalItemsAmountData = []
 
     // Generate item data and chart for each and every individual item (expenses, assets or incomes)
-    props.items.map(item => {
-        let itemData = props.generateData(item, totalItemsAmountData)
+    // props.items.map(item => {
+    //     let itemData = props.generateData(item, totalItemsAmountData)
+    //     lineChartsForIndividualItems.push(
+    //         <ChartCard
+    //             title={item.incomeName || item.assetName || item.expenseName}
+    //             data={itemData}
+    //             chartColor={props.chartColor}
+    //         />
+    //     )
+    // })
+    props.dataForEachItem.map(data => {
         lineChartsForIndividualItems.push(
             <ChartCard
-                title={item.incomeName || item.assetName || item.expenseName}
-                data={itemData}
+                title={data.incomeName || data.assetName || data.expenseName}
+                data={data.data}
                 chartColor={props.chartColor}
             />
         )
     })
-
+    
     // Create chart for total items amount data (refers to the sum of all expenses, assets or incomes)
     let lineChartForTotalItemsAmount =
-        (totalItemsAmountData.length > 0)
+        (props.dataForItemsTotal.length > 0)
             ? <ChartCard
                 title={`Total ${props.title}`}
-                data={totalItemsAmountData}
+                data={props.dataForItemsTotal}
                 chartColor={props.chartColor}
             />
             : null
-
-    // Save the total items amount data to Overview. useState() is required because setting of state should 
-    // never be done during rendering!
-    React.useState(() => {
-        props.saveTotalAmountData(totalItemsAmountData)
-    }, [])
 
     // Decide what to render
     let renderChart =

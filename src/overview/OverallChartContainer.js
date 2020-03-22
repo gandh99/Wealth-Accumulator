@@ -8,7 +8,7 @@ export default function OverallChartContainer(props) {
     const { totalIncomeData, totalAssetData, totalExpenseData } = props.data
     let totalItemsAmountData =
         generateOverallWealthData(totalIncomeData, totalAssetData, totalExpenseData, props.years)
-
+    
     // Create chart for total items amount data (refers to the incomes + assets - expenses)
     let lineChartForTotalItemsAmount =
         (totalItemsAmountData.length > 0)

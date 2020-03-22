@@ -15,11 +15,28 @@ Output for incomeData:
     amount: ...
 }, {...}, {...}, ...]
 */
-export function generateIncomeData(income, totalIncome, years) {
-    let {
-        incomeAmount, incomeFrequency, incomePercentageChange
-    } = income
+export function generateIncomeData(metadataForEachIncomeItem, years, dataForEachIncomeItem, dataForTotalIncome) {
+    metadataForEachIncomeItem.map(metadataForSingleIncomeItem => (
+        generateDataForSingleIncomeItem(
+            metadataForSingleIncomeItem,
+            years,
+            dataForEachIncomeItem,
+            dataForTotalIncome
+        )
+    ))
     
+}
+
+function generateDataForSingleIncomeItem(
+    metadataForSingleIncomeItem,
+    years,
+    dataForEachIncomeItem,
+    dataForTotalIncome
+) {
+    let {
+        incomeName, incomeAmount, incomeFrequency, incomePercentageChange
+    } = metadataForSingleIncomeItem
+
     // Convert to number
     incomeAmount = Number(incomeAmount)
     incomePercentageChange = Number(incomePercentageChange)
@@ -27,10 +44,10 @@ export function generateIncomeData(income, totalIncome, years) {
     let incomeData = []
     let frequency = convertFrequencyToQuantityPerYear(incomeFrequency)
     let cumulativeAmount = incomeAmount * frequency
-    
+
     // Initialise total income
-    if (totalIncome.length <= 0) {
-        initTotalIncome(totalIncome, years)
+    if (dataForTotalIncome.length <= 0) {
+        initTotalIncome(dataForTotalIncome, years)
     }
 
     for (let i = 0; i < years; i++) {
@@ -41,14 +58,18 @@ export function generateIncomeData(income, totalIncome, years) {
         })
 
         // Update the total income data
-        totalIncome[i].amount += Math.round(cumulativeAmount)
+        dataForTotalIncome[i].amount += Math.round(cumulativeAmount)
 
         // Compute the new cumulative amount for the following year
         incomeAmount += incomeAmount * (incomePercentageChange / 100)
         cumulativeAmount += incomeAmount * frequency
     }
 
-    return incomeData
+    dataForEachIncomeItem.push({
+        incomeName,
+        data: incomeData
+    })
+    
 }
 
 function initTotalIncome(totalIncome, years) {
