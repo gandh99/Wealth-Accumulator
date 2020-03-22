@@ -15,7 +15,7 @@ Output for expenseData:
     amount: ...
 }, {...}, {...}, ...]
 */
-export function generateExpenseData(expense, totalExpense) {
+export function generateExpenseData(expense, totalExpense, years) {
     let {
         expenseAmount, expenseFrequency, expensePercentageChange
     } = expense
@@ -25,7 +25,6 @@ export function generateExpenseData(expense, totalExpense) {
     expensePercentageChange = Number(expensePercentageChange)
 
     let expenseData = []
-    let years = 10  // to be modified later
     let frequency = convertFrequencyToQuantityPerYear(expenseFrequency)
     let cumulativeAmount = expenseAmount * frequency
     

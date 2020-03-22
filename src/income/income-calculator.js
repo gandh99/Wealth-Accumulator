@@ -15,7 +15,7 @@ Output for incomeData:
     amount: ...
 }, {...}, {...}, ...]
 */
-export function generateIncomeData(income, totalIncome) {
+export function generateIncomeData(income, totalIncome, years) {
     let {
         incomeAmount, incomeFrequency, incomePercentageChange
     } = income
@@ -25,7 +25,6 @@ export function generateIncomeData(income, totalIncome) {
     incomePercentageChange = Number(incomePercentageChange)
 
     let incomeData = []
-    let years = 10  // to be modified later
     let frequency = convertFrequencyToQuantityPerYear(incomeFrequency)
     let cumulativeAmount = incomeAmount * frequency
     

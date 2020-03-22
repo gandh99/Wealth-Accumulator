@@ -18,7 +18,7 @@ Output for assetData:
     amount: ...
 }, {...}, {...}, ...]
 */
-export function generateAssetData(asset, totalAsset) {
+export function generateAssetData(asset, totalAsset, years) {
     let {
         assetAmount,
         assetContributionAmount,
@@ -35,7 +35,6 @@ export function generateAssetData(asset, totalAsset) {
     assetAnnualPercentageChange = Number(assetAnnualPercentageChange)
 
     let assetData = []
-    let years = 10  // to be modified later
     let contributionFrequency = convertFrequencyToQuantityPerYear(assetContributionFrequency)
     let cumulativeAmount = assetAmount
 

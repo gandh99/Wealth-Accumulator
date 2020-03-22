@@ -2,7 +2,6 @@ import React from 'react'
 import Container from '../components/Container'
 import UtilityBar from '../components/UtilityBar'
 import ButtonGroup from '../components/ButtonGroup'
-import AddButton from '../components/AddButton'
 import ChartContainer from './ChartContainer'
 import { generateExpenseData } from '../expenses/expense-calculator'
 import { generateAssetData } from '../assets/asset-calculator'
@@ -24,32 +23,39 @@ export default function Overview(props) {
     const [totalIncomeData, setTotalIncomeData] = React.useState([])
     const [totalAssetData, setTotalAssetData] = React.useState([])
     const [totalExpenseData, setTotalExpenseData] = React.useState([])
-   
+
     const chartContainers = [
-        <OverallChartContainer 
+        <OverallChartContainer
             title={'Overall Wealth'}
-            data={{totalIncomeData, totalAssetData, totalExpenseData}}
+            data={{ totalIncomeData, totalAssetData, totalExpenseData }}
             chartColor={style.getPropertyValue('--primary-component-color')}
+            years={props.years}
         />,
         <ChartContainer
             title={'Incomes'}
             items={props.incomes}
             chartColor={style.getPropertyValue('--increase-text-color')}
-            generateData={generateIncomeData}
+            generateData={
+                (item, totalItemsAmountData) => generateIncomeData(item, totalItemsAmountData, props.years)
+            }
             saveTotalAmountData={setTotalIncomeData}
         />,
         <ChartContainer
             title={'Assets'}
             items={props.assets}
             chartColor={style.getPropertyValue('--secondary-component-color')}
-            generateData={generateAssetData}
+            generateData={
+                (item, totalItemsAmountData) => generateAssetData(item, totalItemsAmountData, props.years)
+            }
             saveTotalAmountData={setTotalAssetData}
         />,
         <ChartContainer
             title={'Expenses'}
             items={props.expenses}
             chartColor={style.getPropertyValue('--tertiary-component-color')}
-            generateData={generateExpenseData}
+            generateData={
+                (item, totalItemsAmountData) => generateExpenseData(item, totalItemsAmountData, props.years)
+            }
             saveTotalAmountData={setTotalExpenseData}
         />,
     ]

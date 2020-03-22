@@ -1,15 +1,15 @@
-export function generateOverallWealthData(totalIncomeData, totalAssetData, totalExpenseData) {
+export function generateOverallWealthData(totalIncomeData, totalAssetData, totalExpenseData, years) {
     // If all 3 data arrays are empty, return
     if (totalIncomeData.length <= 0 && totalAssetData.length <= 0 && totalExpenseData.length <= 0) {
         return []
     }
 
     let overallWealthData = []
-    let incomeData = getArrayData(totalIncomeData)
-    let assetData = getArrayData(totalAssetData)
-    let expenseData = getArrayData(totalExpenseData)
+    let incomeData = getArrayData(totalIncomeData, years)
+    let assetData = getArrayData(totalAssetData, years)
+    let expenseData = getArrayData(totalExpenseData, years)
 
-    for (let i = 0; i < 10; i++) {  //TODO
+    for (let i = 0; i < years; i++) {
         let wealthForCurrentYear = incomeData[i] + assetData[i] - expenseData[i]
         overallWealthData.push({
             year: i + 1,
@@ -30,10 +30,10 @@ Input:
 Output:
 [number, number, number, ...]
 */
-function getArrayData(array) {
+function getArrayData(array, years) {
     let data = []
 
-    for (let i = 0; i < 10; i++) {  //TODO
+    for (let i = 0; i < years; i++) {  
         if (!array[i]) {
             data.push(0)
         } else {
