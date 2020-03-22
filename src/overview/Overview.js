@@ -15,29 +15,27 @@ export default function Overview(props) {
 
     // Track number of years selected
     const [years, setYears] = React.useState(props.years)
-    
+
     // Set years modal
     const [showSetYearsModal, setShowSetYearsModal] = React.useState(false)
 
-    // Use this to track overall wealth
-    // const [totalIncomeData, setTotalIncomeData] = React.useState([])
-    // const [totalAssetData, setTotalAssetData] = React.useState([])
-    const [totalExpenseData, setTotalExpenseData] = React.useState([])
-
     // Used to hold the data points for generating the charts
     let dataForEachIncomeItem = []  // array of objects
-    let dataForTotalIncome = [] 
+    let dataForTotalIncome = []
     let dataForEachAssetItem = []  // array of objects
-    let dataForTotalAsset = [] 
+    let dataForTotalAsset = []
+    let dataForEachExpenseItem = []  // array of objects
+    let dataForTotalExpense = []
 
     // Generate the data points for the charts
     generateIncomeData(props.metadataForEachIncomeItem, props.years, dataForEachIncomeItem, dataForTotalIncome)
     generateAssetData(props.metadataForEachAssetItem, props.years, dataForEachAssetItem, dataForTotalAsset)
+    generateExpenseData(props.metadataForEachExpenseItem, props.years, dataForEachExpenseItem, dataForTotalExpense)
 
     const chartContainers = [
         <OverallChartContainer
             title={'Overall Wealth'}
-            data={{ dataForTotalIncome, dataForTotalAsset, totalExpenseData }}
+            data={{ dataForTotalIncome, dataForTotalAsset, dataForTotalExpense }}
             chartColor={style.getPropertyValue('--primary-component-color')}
             years={props.years}
         />,
@@ -53,15 +51,12 @@ export default function Overview(props) {
             dataForItemsTotal={dataForTotalAsset}
             chartColor={style.getPropertyValue('--secondary-component-color')}
         />,
-        // <ChartContainer
-        //     title={'Expenses'}
-        //     items={props.expenses}
-        //     chartColor={style.getPropertyValue('--tertiary-component-color')}
-        //     generateData={
-        //         (item, totalItemsAmountData) => generateExpenseData(item, totalItemsAmountData, props.years)
-        //     }
-        //     saveTotalAmountData={setTotalExpenseData}
-        // />,
+        <ChartContainer
+            title={'Expenses'}
+            dataForEachItem={dataForEachExpenseItem}
+            dataForItemsTotal={dataForTotalExpense}
+            chartColor={style.getPropertyValue('--tertiary-component-color')}
+        />,
     ]
 
     return (

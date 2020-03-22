@@ -18,7 +18,7 @@ class App extends Component {
     years: 10,
     metadataForEachIncomeItem: [],
     metadataForEachAssetItem: [],
-    allExpenses: [],
+    metadataForEachExpenseItem: [],
 }
 
   toggleSidebar = (showSidebar) => {
@@ -41,7 +41,7 @@ class App extends Component {
               <Overview
                 metadataForEachIncomeItem={this.state.metadataForEachIncomeItem}
                 metadataForEachAssetItem={this.state.metadataForEachAssetItem}  
-                expenses={this.state.allExpenses}
+                metadataForEachExpenseItem={this.state.metadataForEachExpenseItem}
                 years={this.state.years}
                 saveToApp={years => this.setState({ years })}
               />
@@ -60,8 +60,8 @@ class App extends Component {
             </Route>
             <Route path="/expenses">
               <Expenses
-                allExpenses={this.state.allExpenses}
-                saveToApp={(allExpenses) => this.setState({ allExpenses })}
+                allExpenses={this.state.metadataForEachExpenseItem}
+                saveToApp={(metadataForEachExpenseItem) => this.setState({ metadataForEachExpenseItem })}
               />
             </Route>
           </Switch>

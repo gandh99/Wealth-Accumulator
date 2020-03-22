@@ -15,10 +15,26 @@ Output for expenseData:
     amount: ...
 }, {...}, {...}, ...]
 */
-export function generateExpenseData(expense, totalExpense, years) {
+export function generateExpenseData(metadataForEachExpenseItem, years, dataForEachExpenseItem, dataForTotalExpense) {
+    metadataForEachExpenseItem.map(metadataForSingleExpenseItem => (
+        generateDataForSingleExpenseItem(
+            metadataForSingleExpenseItem,
+            years,
+            dataForEachExpenseItem,
+            dataForTotalExpense
+        )
+    ))
+}
+
+function generateDataForSingleExpenseItem(
+    metadataForSingleExpenseItem,
+    years,
+    dataForEachExpenseItem,
+    dataForTotalExpense
+) {
     let {
-        expenseAmount, expenseFrequency, expensePercentageChange
-    } = expense
+        expenseName, expenseAmount, expenseFrequency, expensePercentageChange
+    } = metadataForSingleExpenseItem
 
     // Convert to number
     expenseAmount = Number(expenseAmount)
@@ -27,28 +43,31 @@ export function generateExpenseData(expense, totalExpense, years) {
     let expenseData = []
     let frequency = convertFrequencyToQuantityPerYear(expenseFrequency)
     let cumulativeAmount = expenseAmount * frequency
-    
+
     // Initialise total expense
-    if (totalExpense.length <= 0) {
-        initTotalExpense(totalExpense, years)
+    if (dataForTotalExpense.length <= 0) {
+        initTotalExpense(dataForTotalExpense, years)
     }
 
     for (let i = 0; i < years; i++) {
-        // Update the individual expense data
         expenseData.push({
             year: i + 1,
             amount: Math.round(cumulativeAmount)
         })
 
         // Update the total expense data
-        totalExpense[i].amount += Math.round(cumulativeAmount)
+        dataForTotalExpense[i].amount += Math.round(cumulativeAmount)
 
         // Compute the new cumulative amount for the following year
         expenseAmount += expenseAmount * (expensePercentageChange / 100)
         cumulativeAmount += expenseAmount * frequency
     }
 
-    return expenseData
+    // Update the individual expense data
+    dataForEachExpenseItem.push({
+        expenseName,
+        data: expenseData
+    })
 }
 
 function initTotalExpense(totalExpense, years) {
