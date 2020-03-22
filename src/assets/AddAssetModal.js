@@ -52,8 +52,8 @@ export default function AddAssetModal(props) {
     }
 
     const addAsset = () => {
-        props.setAllAssets([
-            ...props.allAssets,
+        props.setMetadataForEachAssetItem([
+            ...props.metadataForEachAssetItem,
             {
                 id: uuid(),
                 assetName,
@@ -68,7 +68,7 @@ export default function AddAssetModal(props) {
     }
 
     const modifyAsset = () => {
-        let assetData = props.allAssets
+        let assetData = props.metadataForEachAssetItem
         for (let i = 0; i < assetData.length; i++) {
             if (assetData[i].id === props.editData.id) {
                 assetData[i] = {
@@ -84,7 +84,7 @@ export default function AddAssetModal(props) {
                 break
             }
         }
-        props.setAllAssets(assetData)
+        props.setMetadataForEachAssetItem(assetData)
     }
 
     const allInputsValid = () => {

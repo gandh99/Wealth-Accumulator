@@ -50,8 +50,8 @@ export default function Expenses(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    allExpenses={metadataForEachExpenseItem}
-                    setAllExpenses={(allExpenseData) => {
+                    metadataForEachExpenseItem={metadataForEachExpenseItem}
+                    setMetadataForEachExpenseItem={(allExpenseData) => {
                         setMetadataForEachExpenseItem(allExpenseData)
                         props.saveToApp(allExpenseData)
                     }}

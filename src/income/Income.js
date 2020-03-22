@@ -50,8 +50,8 @@ export default function Income(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    allIncomes={metadataForEachIncomeItem}
-                    setAllIncomes={(allIncomesData) => {
+                    metadataForEachIncomeItem={metadataForEachIncomeItem}
+                    setMetadataForEachIncomeItem={(allIncomesData) => {
                         setMetadataForEachIncomeItem(allIncomesData)
                         props.saveToApp(allIncomesData)
                     }}

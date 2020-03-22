@@ -49,8 +49,8 @@ export default function Assets(props) {
                         setCurrentEditData({})
                         setShowModal(false)
                     }}
-                    allAssets={metadataForEachAssetItem}
-                    setAllAssets={(allAssetData) => {
+                    metadataForEachAssetItem={metadataForEachAssetItem}
+                    setMetadataForEachAssetItem={(allAssetData) => {
                         setMetadataForEachAssetItem(allAssetData)
                         props.saveToApp(allAssetData)
                     }}

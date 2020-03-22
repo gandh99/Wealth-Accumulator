@@ -46,8 +46,8 @@ export default function AddExpenseModal(props) {
     }
 
     const addExpense = () => {
-        props.setAllExpenses([
-            ...props.allExpenses,
+        props.setMetadataForEachExpenseItem([
+            ...props.metadataForEachExpenseItem,
             {
                 id: uuid(),
                 expenseName,
@@ -59,7 +59,7 @@ export default function AddExpenseModal(props) {
     }
 
     const modifyExpense = () => {
-        let expenseData = props.allExpenses
+        let expenseData = props.metadataForEachExpenseItem
         for (let i = 0; i < expenseData.length; i++) {
             if (expenseData[i].id === props.editData.id) {
                 expenseData[i] = {
@@ -72,7 +72,7 @@ export default function AddExpenseModal(props) {
                 break
             }
         }
-        props.setAllExpenses(expenseData)
+        props.setMetadataForEachExpenseItem(expenseData)
     }
 
     const allInputsValid = () => {

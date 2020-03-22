@@ -46,8 +46,8 @@ export default function AddIncomeModal(props) {
     }
 
     const addIncome = () => {
-        props.setAllIncomes([
-            ...props.allIncomes,
+        props.setMetadataForEachIncomeItem([
+            ...props.metadataForEachIncomeItem,
             {
                 id: uuid(),
                 incomeName,
@@ -59,7 +59,7 @@ export default function AddIncomeModal(props) {
     }
 
     const modifyIncome = () => {
-        let incomeData = props.allIncomes
+        let incomeData = props.metadataForEachIncomeItem
         for (let i = 0; i < incomeData.length; i++) {
             if (incomeData[i].id === props.editData.id) {
                 incomeData[i] = {
@@ -72,7 +72,7 @@ export default function AddIncomeModal(props) {
                 break
             }
         }
-        props.setAllIncomes(incomeData)
+        props.setMetadataForEachIncomeItem(incomeData)
     }
 
     const allInputsValid = () => {
