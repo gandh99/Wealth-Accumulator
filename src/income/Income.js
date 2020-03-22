@@ -51,9 +51,9 @@ export default function Income(props) {
                         setShowModal(false)
                     }}
                     metadataForEachIncomeItem={metadataForEachIncomeItem}
-                    setMetadataForEachIncomeItem={(allIncomesData) => {
-                        setMetadataForEachIncomeItem(allIncomesData)
-                        props.saveToApp(allIncomesData)
+                    setMetadataForEachIncomeItem={(metadataForEachIncomeItem) => {
+                        setMetadataForEachIncomeItem(metadataForEachIncomeItem)
+                        props.saveToApp(metadataForEachIncomeItem)
                     }}
                     isEditing={isEditing}
                     editData={currentEditData}  // in case the modal is opened for editing instead of adding

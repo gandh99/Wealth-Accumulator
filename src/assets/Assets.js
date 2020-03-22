@@ -50,9 +50,9 @@ export default function Assets(props) {
                         setShowModal(false)
                     }}
                     metadataForEachAssetItem={metadataForEachAssetItem}
-                    setMetadataForEachAssetItem={(allAssetData) => {
-                        setMetadataForEachAssetItem(allAssetData)
-                        props.saveToApp(allAssetData)
+                    setMetadataForEachAssetItem={(metadataForEachAssetItem) => {
+                        setMetadataForEachAssetItem(metadataForEachAssetItem)
+                        props.saveToApp(metadataForEachAssetItem)
                     }}
                     isEditing={isEditing}
                     editData={currentEditData}  // in case the modal is opened for editing instead of adding

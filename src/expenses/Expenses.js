@@ -51,9 +51,9 @@ export default function Expenses(props) {
                         setShowModal(false)
                     }}
                     metadataForEachExpenseItem={metadataForEachExpenseItem}
-                    setMetadataForEachExpenseItem={(allExpenseData) => {
-                        setMetadataForEachExpenseItem(allExpenseData)
-                        props.saveToApp(allExpenseData)
+                    setMetadataForEachExpenseItem={(metadataForEachExpenseItem) => {
+                        setMetadataForEachExpenseItem(metadataForEachExpenseItem)
+                        props.saveToApp(metadataForEachExpenseItem)
                     }}
                     isEditing={isEditing}
                     editData={currentEditData}  // in case the modal is opened for editing instead of adding
