@@ -1,6 +1,7 @@
 :root {
     /* Background */
     --primary-background-color: #2f2b3f;
+    --primary-background-color-light: #373249;
     --primary-background-color-dark: #221f2e;
 
     /* Banner */

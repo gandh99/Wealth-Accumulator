@@ -29,16 +29,16 @@ export default class Sidebar extends Component {
                         <div className='banner-logo'>Wealth<br/>Accumulator</div>
                     </div>
                     <div className='sidebar-menu' style={menuStyle}>
-                        <Link to='/overview' onClick={this.props.toggleSidebar.bind(this, false)}>
+                        <Link to='/overview' onClick={this.props.toggleSidebar.bind(this, false)} style={{ textDecoration: 'none' }}>
                             <div className='sidebar-option'>Overview</div>
                         </Link>
-                        <Link to='/incomes' onClick={this.props.toggleSidebar.bind(this, false)}>
+                        <Link to='/incomes' onClick={this.props.toggleSidebar.bind(this, false)} style={{ textDecoration: 'none' }}>
                             <div className='sidebar-option'>Income</div>
                         </Link>
-                        <Link to='/assets' onClick={this.props.toggleSidebar.bind(this, false)}>
+                        <Link to='/assets' onClick={this.props.toggleSidebar.bind(this, false)} style={{ textDecoration: 'none' }}>
                             <div className='sidebar-option'>Assets</div>
                         </Link>
-                        <Link to='/expenses' onClick={this.props.toggleSidebar.bind(this, false)}>
+                        <Link to='/expenses' onClick={this.props.toggleSidebar.bind(this, false)} style={{ textDecoration: 'none' }}>
                             <div className='sidebar-option'>Expenses</div>
                         </Link>
                     </div>
