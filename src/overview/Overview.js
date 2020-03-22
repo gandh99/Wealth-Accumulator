@@ -6,6 +6,7 @@ import ChartContainer from './ChartContainer'
 import { generateExpenseData } from '../expenses/expense-calculator'
 import { generateAssetData } from '../assets/asset-calculator'
 import { generateIncomeData } from '../income/income-calculator'
+import { generateOverallWealthData } from './overall-wealth-calculator'
 import OverallChartContainer from './OverallChartContainer'
 import SetYearsButton from '../components/SetYearsButton'
 import SetYearsModal from './SetYearsModal'
@@ -26,16 +27,18 @@ export default function Overview(props) {
     let dataForTotalAsset = []
     let dataForEachExpenseItem = []  // array of objects
     let dataForTotalExpense = []
+    let dataForOverallWealth = []
 
     // Generate the data points for the charts
     generateIncomeData(props.metadataForEachIncomeItem, props.years, dataForEachIncomeItem, dataForTotalIncome)
     generateAssetData(props.metadataForEachAssetItem, props.years, dataForEachAssetItem, dataForTotalAsset)
     generateExpenseData(props.metadataForEachExpenseItem, props.years, dataForEachExpenseItem, dataForTotalExpense)
+    generateOverallWealthData(dataForOverallWealth, dataForTotalIncome, dataForTotalAsset, dataForTotalExpense, props.years)
 
     const chartContainers = [
         <OverallChartContainer
             title={'Overall Wealth'}
-            data={{ dataForTotalIncome, dataForTotalAsset, dataForTotalExpense }}
+            dataForOverallWealth={dataForOverallWealth}
             chartColor={style.getPropertyValue('--primary-component-color')}
             years={props.years}
         />,

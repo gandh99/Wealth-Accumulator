@@ -4,17 +4,12 @@ import './chart-container.css'
 import { generateOverallWealthData } from './overall-wealth-calculator'
 
 export default function OverallChartContainer(props) {
-    // Generate item data and chart for total wealth (sum of income, asset and expense data)
-    const { dataForTotalIncome, dataForTotalAsset, dataForTotalExpense } = props.data
-    let totalItemsAmountData =
-        generateOverallWealthData(dataForTotalIncome, dataForTotalAsset, dataForTotalExpense, props.years)
-    
     // Create chart for total items amount data (refers to the incomes + assets - expenses)
     let lineChartForTotalItemsAmount =
-        (totalItemsAmountData.length > 0)
+        (props.dataForOverallWealth.length > 0)
             ? <ChartCard
                 title={props.title}
-                data={totalItemsAmountData}
+                data={props.dataForOverallWealth}
                 chartColor={props.chartColor}
             />
             : null

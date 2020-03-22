@@ -5,17 +5,6 @@ import './chart-container.css'
 export default function ChartContainer(props) {
     let lineChartsForIndividualItems = []
 
-    // Generate item data and chart for each and every individual item (expenses, assets or incomes)
-    // props.items.map(item => {
-    //     let itemData = props.generateData(item, totalItemsAmountData)
-    //     lineChartsForIndividualItems.push(
-    //         <ChartCard
-    //             title={item.incomeName || item.assetName || item.expenseName}
-    //             data={itemData}
-    //             chartColor={props.chartColor}
-    //         />
-    //     )
-    // })
     props.dataForEachItem.map(dataForSingleItem => {
         lineChartsForIndividualItems.push(
             <ChartCard
