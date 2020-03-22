@@ -24,7 +24,6 @@ export function generateIncomeData(metadataForEachIncomeItem, years, dataForEach
             dataForTotalIncome
         )
     ))
-    
 }
 
 function generateDataForSingleIncomeItem(
@@ -51,7 +50,6 @@ function generateDataForSingleIncomeItem(
     }
 
     for (let i = 0; i < years; i++) {
-        // Update the individual income data
         incomeData.push({
             year: i + 1,
             amount: Math.round(cumulativeAmount)
@@ -65,11 +63,11 @@ function generateDataForSingleIncomeItem(
         cumulativeAmount += incomeAmount * frequency
     }
 
+    // Update the individual income data
     dataForEachIncomeItem.push({
         incomeName,
         data: incomeData
     })
-    
 }
 
 function initTotalIncome(totalIncome, years) {

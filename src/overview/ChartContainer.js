@@ -16,11 +16,11 @@ export default function ChartContainer(props) {
     //         />
     //     )
     // })
-    props.dataForEachItem.map(data => {
+    props.dataForEachItem.map(dataForSingleItem => {
         lineChartsForIndividualItems.push(
             <ChartCard
-                title={data.incomeName || data.assetName || data.expenseName}
-                data={data.data}
+                title={dataForSingleItem.incomeName || dataForSingleItem.assetName || dataForSingleItem.expenseName}
+                data={dataForSingleItem.data}
                 chartColor={props.chartColor}
             />
         )

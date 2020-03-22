@@ -18,15 +18,32 @@ Output for assetData:
     amount: ...
 }, {...}, {...}, ...]
 */
-export function generateAssetData(asset, totalAsset, years) {
+export function generateAssetData(metadataForEachAssetItem, years, dataForEachAssetItem, dataForTotalAsset) {
+    metadataForEachAssetItem.map(metadataForSingleAssetItem => (
+        generateDataForSingleAssetItem(
+            metadataForSingleAssetItem,
+            years,
+            dataForEachAssetItem,
+            dataForTotalAsset
+        )
+    ))
+}
+
+function generateDataForSingleAssetItem(
+    metadataForSingleAssetItem,
+    years,
+    dataForEachAssetItem,
+    dataForTotalAsset
+) {
     let {
+        assetName,
         assetAmount,
         assetContributionAmount,
         assetContributionFrequency,
         assetAnnualPayout,
         assetAnnualPayoutType,
         assetAnnualPercentageChange
-    } = asset
+    } = metadataForSingleAssetItem
 
     // Convert to number
     assetAmount = Number(assetAmount)
@@ -39,8 +56,8 @@ export function generateAssetData(asset, totalAsset, years) {
     let cumulativeAmount = assetAmount
 
     // Initialise total asset
-    if (totalAsset.length <= 0) {
-        initTotalAsset(totalAsset, years)
+    if (dataForTotalAsset.length <= 0) {
+        initTotalAsset(dataForTotalAsset, years)
     }
 
     for (let i = 0; i < years; i++) {
@@ -50,17 +67,20 @@ export function generateAssetData(asset, totalAsset, years) {
         cumulativeAmount += contributionAmount + payoutAmount
         cumulativeAmount += (assetAnnualPercentageChange / 100) * (cumulativeAmount)
 
-        // Update the individual asset data
         assetData.push({
             year: i + 1,
             amount: Math.round(cumulativeAmount)
         })
 
         // Update the total asset data
-        totalAsset[i].amount += Math.round(cumulativeAmount)
+        dataForTotalAsset[i].amount += Math.round(cumulativeAmount)
     }
 
-    return assetData
+    // Update the individual asset data
+    dataForEachAssetItem.push({
+        assetName,
+        data: assetData
+    })
 }
 
 /* payoutType can be 'fixed' or 'percent'

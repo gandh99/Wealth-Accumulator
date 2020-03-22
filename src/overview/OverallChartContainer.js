@@ -5,9 +5,9 @@ import { generateOverallWealthData } from './overall-wealth-calculator'
 
 export default function OverallChartContainer(props) {
     // Generate item data and chart for total wealth (sum of income, asset and expense data)
-    const { totalIncomeData, totalAssetData, totalExpenseData } = props.data
+    const { dataForTotalIncome, dataForTotalAsset, totalExpenseData } = props.data
     let totalItemsAmountData =
-        generateOverallWealthData(totalIncomeData, totalAssetData, totalExpenseData, props.years)
+        generateOverallWealthData(dataForTotalIncome, dataForTotalAsset, totalExpenseData, props.years)
     
     // Create chart for total items amount data (refers to the incomes + assets - expenses)
     let lineChartForTotalItemsAmount =

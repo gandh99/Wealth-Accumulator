@@ -21,17 +21,23 @@ export default function Overview(props) {
 
     // Use this to track overall wealth
     // const [totalIncomeData, setTotalIncomeData] = React.useState([])
-    const [totalAssetData, setTotalAssetData] = React.useState([])
+    // const [totalAssetData, setTotalAssetData] = React.useState([])
     const [totalExpenseData, setTotalExpenseData] = React.useState([])
 
+    // Used to hold the data points for generating the charts
     let dataForEachIncomeItem = []  // array of objects
     let dataForTotalIncome = [] 
+    let dataForEachAssetItem = []  // array of objects
+    let dataForTotalAsset = [] 
+
+    // Generate the data points for the charts
     generateIncomeData(props.metadataForEachIncomeItem, props.years, dataForEachIncomeItem, dataForTotalIncome)
+    generateAssetData(props.metadataForEachAssetItem, props.years, dataForEachAssetItem, dataForTotalAsset)
 
     const chartContainers = [
         <OverallChartContainer
             title={'Overall Wealth'}
-            data={{ totalIncomeData: dataForTotalIncome, totalAssetData, totalExpenseData }}
+            data={{ dataForTotalIncome, dataForTotalAsset, totalExpenseData }}
             chartColor={style.getPropertyValue('--primary-component-color')}
             years={props.years}
         />,
@@ -40,20 +46,13 @@ export default function Overview(props) {
             dataForEachItem={dataForEachIncomeItem}
             dataForItemsTotal={dataForTotalIncome}
             chartColor={style.getPropertyValue('--increase-text-color')}
-            // generateData={
-            //     (item, totalItemsAmountData) => generateIncomeData(item, totalItemsAmountData, props.years)
-            // }
-            // saveTotalAmountData={setTotalIncomeData}
         />,
-        // <ChartContainer
-        //     title={'Assets'}
-        //     items={props.assets}
-        //     chartColor={style.getPropertyValue('--secondary-component-color')}
-        //     generateData={
-        //         (item, totalItemsAmountData) => generateAssetData(item, totalItemsAmountData, props.years)
-        //     }
-        //     saveTotalAmountData={setTotalAssetData}
-        // />,
+        <ChartContainer
+            title={'Assets'}
+            dataForEachItem={dataForEachAssetItem}
+            dataForItemsTotal={dataForTotalAsset}
+            chartColor={style.getPropertyValue('--secondary-component-color')}
+        />,
         // <ChartContainer
         //     title={'Expenses'}
         //     items={props.expenses}
