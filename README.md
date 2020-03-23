@@ -5,64 +5,45 @@ My first app built in React. Featuring an intuitive UI, it allows you to input y
 - React
 
 ## Screenshots
-**1. The homepage of Marketplace with a horizontal carousel displaying the trending items.**
+**1. The homepage of Wealth Accumulator, where you can view the graphs of your overall wealth after creating some inputs in the Income, Assets or Expenses pages. You may also set the time horizon using the button on the top right hand corner of the page.**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/home_desktop.png" alt="alt text" width="100%" height="50%">
-
-
-**2.The homepage (and the entire website) was built to be mobile-first and responsive.**
-
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/home_mobile.png" alt="alt text" width="30%" height="30%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/homepage.png" alt="alt text" width="100%" height="50%">
 
 
-**3.When clicking on the account picture on the top right, the user is presented with the options to either login or register.**
+**2. In the Income page, you may input data of your income source(s).**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/account_menu_not_logged_in.png" alt="alt text" width="100%" height="50%">
-
-
-**4.The sidebar allows the user to quickly navigate to any part of the site to buy items.**
-
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/sidebar.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/add_income_modal.png" alt="alt text" width="100%" height="50%">
 
 
-**5.Before a user can start buying and selling items, they have to first register with Marketplace.**
+**3. The income data you input is reflected in the cards in the Income page.**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/register.png" alt="alt text" width="100%" height="50%">
-
-
-**6.After successfully registering, the user can login to being buying and selling items.**
-
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/login.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/income_page.png" alt="alt text" width="100%" height="50%">
 
 
-**7.The user can add an item to sell by selecting a picture, category, name and price for the item.**
+**4. In the Assets page, you may input data of your asset(s).**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/add_item.png" alt="alt text" width="100%" height="50%">
-
-
-**8.Upon successfully listing the item for sale, the new item is shown in the user's list of items.**
-
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/item_added.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/add_asset_modal.png" alt="alt text" width="100%" height="50%">
 
 
-**9.Every buy/sell transaction is recorded and displayed in the table under historical transactions.**
+**5. The asset data you input is reflected in the cards in the Asset page.**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/historical_transactions.png" alt="alt text" width="100%" height="50%">
-
-
-**10.When the user browses for items under a particular category, they can buy the item by clicking on the 'Buy Item' button. They can also choose to sort the items displayed.**
-
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/item_category_laptop.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/asset_page.png" alt="alt text" width="100%" height="50%">
 
 
-**11.The items can also be searched based on an input value in the search bar.**
+**6. In the Expenses page, you may input data of your expenses.**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/search_item.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/add_expense_modal.png" alt="alt text" width="100%" height="50%">
 
 
-**12.The confirmation modal box before a user can buy an item.**
+**7. The expenses data you input is reflected in the cards in the Expenses page.**
 
-<img src="https://github.com/gandh99/Marketplace/blob/master/screenshots/buy_item.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/expenses_page.png" alt="alt text" width="100%" height="50%">
+
+
+**8.Back on the Overview page, the changes in your Overall Wealth, Income, Assets and Expenses are reflected in the graphs.**
+
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/overall_wealth_chart.png" alt="alt text" width="100%" height="50%"><img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/income_chart.png" alt="alt text" width="100%" height="50%"><img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/asset_chart.png" alt="alt text" width="100%" height="50%"><img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/expenses_chart.png" alt="alt text" width="100%" height="50%">
+
 
 ## How to View This Project
 
