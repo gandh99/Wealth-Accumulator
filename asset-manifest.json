@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Wealth-Accumulator/static/css/main.561c9f68.chunk.css",
+    "main.js": "/Wealth-Accumulator/static/js/main.fcf45d4f.chunk.js",
+    "main.js.map": "/Wealth-Accumulator/static/js/main.fcf45d4f.chunk.js.map",
+    "runtime-main.js": "/Wealth-Accumulator/static/js/runtime-main.c7da4859.js",
+    "runtime-main.js.map": "/Wealth-Accumulator/static/js/runtime-main.c7da4859.js.map",
+    "static/js/2.a5b7223a.chunk.js": "/Wealth-Accumulator/static/js/2.a5b7223a.chunk.js",
+    "static/js/2.a5b7223a.chunk.js.map": "/Wealth-Accumulator/static/js/2.a5b7223a.chunk.js.map",
+    "index.html": "/Wealth-Accumulator/index.html",
+    "precache-manifest.b8f84a067a3af25b6f79cbd9699b9f7e.js": "/Wealth-Accumulator/precache-manifest.b8f84a067a3af25b6f79cbd9699b9f7e.js",
+    "service-worker.js": "/Wealth-Accumulator/service-worker.js",
+    "static/css/main.561c9f68.chunk.css.map": "/Wealth-Accumulator/static/css/main.561c9f68.chunk.css.map",
+    "static/js/2.a5b7223a.chunk.js.LICENSE.txt": "/Wealth-Accumulator/static/js/2.a5b7223a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c7da4859.js",
+    "static/js/2.a5b7223a.chunk.js",
+    "static/css/main.561c9f68.chunk.css",
+    "static/js/main.fcf45d4f.chunk.js"
+  ]
+}
