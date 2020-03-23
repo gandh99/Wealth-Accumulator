@@ -42,7 +42,10 @@ My first app built in React. Featuring an intuitive UI, it allows you to input y
 
 **8.Back on the Overview page, the changes in your Overall Wealth, Income, Assets and Expenses are reflected in the graphs.**
 
-<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/overall_wealth_chart.png" alt="alt text" width="100%" height="50%"><img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/income_chart.png" alt="alt text" width="100%" height="50%"><img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/asset_chart.png" alt="alt text" width="100%" height="50%"><img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/expenses_chart.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/overall_wealth_chart.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/income_chart.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/assets_chart.png" alt="alt text" width="100%" height="50%">
+<img src="https://github.com/gandh99/Wealth-Accumulator/blob/master/screenshots/expenses_chart.png" alt="alt text" width="100%" height="50%">
 
 
 ## How to View This Project
