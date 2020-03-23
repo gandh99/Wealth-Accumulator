@@ -1,5 +1,9 @@
 # Wealth Accumulator
-My first app built in React. Featuring an intuitive UI, it allows you to input your income, assets and expenses. The Overview page then plots graphs of how your overall wealth, income, assets and expenses will change over time. [Here's all you need to do to run the project on your computer.](#runProject)
+My first app built in React. Featuring an intuitive UI, it allows you to input your income, assets and expenses. The Overview page then plots graphs of how your overall wealth, income, assets and expenses will change over time. 
+
+[Curious? Check out the app for yourself!](https://gandh99.github.io/Wealth-Accumulator/)
+
+[Here's all you need to do to run the project on your computer.](#runProject)
 
 ## Technologies
 - React
