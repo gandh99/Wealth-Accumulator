@@ -7,6 +7,7 @@ My first app built in React. Featuring an intuitive UI, it allows you to input y
 
 ## Technologies
 - React
+- React-bootstrap
 
 ## Screenshots
 **1. The homepage of Wealth Accumulator, where you can view the graphs of your overall wealth after creating some inputs in the Income, Assets or Expenses pages. You may also set the time horizon using the button on the top right hand corner of the page.**
